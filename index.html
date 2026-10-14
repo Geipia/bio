@@ -1,0 +1,1311 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#12232A">
+<meta name="description" content="Révision de biochimie 4e secondaire : cours, schémas, quiz, examen blanc et progression.">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icon-192.png">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Molécules">
+<title>Molécules du vivant</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Familjen+Grotesk:wght@500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<style>
+:root{
+  --bg:#EEF2F1; --surface:#FFFFFF; --surface-2:#E2E9E7; --ink:#12232A; --ink-2:#4B5E64; --line:#CAD6D3;
+  --eau:#2272B3; --eau-soft:#DCEAF6; --glu:#B9750F; --glu-soft:#F7EAD2; --lip:#B8457A; --lip-soft:#F6DEE9;
+  --pro:#3A7F37; --pro-soft:#E0EFDB; --adn:#6449BE; --adn-soft:#E7E1F7;
+  --good:#2E7D4F; --good-soft:#DDF0E3; --bad:#BC3B35; --bad-soft:#F8E0DE;
+  --bA:#F3C772; --bT:#F2A595; --bG:#97D3AE; --bC:#9DC1F2;
+  --f-head:"Familjen Grotesk","Segoe UI",system-ui,sans-serif;
+  --f-body:"Atkinson Hyperlegible","Segoe UI",system-ui,sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,Consolas,monospace;
+  --r:10px; --side:250px;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  color-scheme:dark;
+  --bg:#0E1618; --surface:#162125; --surface-2:#1F2D31; --ink:#E2ECEA; --ink-2:#98AEB0; --line:#2D3F43;
+  --eau:#6BB0E8; --eau-soft:#16304A; --glu:#E7AE4D; --glu-soft:#3A2C12; --lip:#E68AB4; --lip-soft:#3D1B2B;
+  --pro:#86C67E; --pro-soft:#1C3319; --adn:#A893EE; --adn-soft:#2A2148;
+  --good:#6FCB92; --good-soft:#163A26; --bad:#F08A82; --bad-soft:#43201D;
+  --bA:#7E5F1E; --bT:#7F3E33; --bG:#2C6B47; --bC:#2E5487;
+}}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#0E1618; --surface:#162125; --surface-2:#1F2D31; --ink:#E2ECEA; --ink-2:#98AEB0; --line:#2D3F43;
+  --eau:#6BB0E8; --eau-soft:#16304A; --glu:#E7AE4D; --glu-soft:#3A2C12; --lip:#E68AB4; --lip-soft:#3D1B2B;
+  --pro:#86C67E; --pro-soft:#1C3319; --adn:#A893EE; --adn-soft:#2A2148;
+  --good:#6FCB92; --good-soft:#163A26; --bad:#F08A82; --bad-soft:#43201D;
+  --bA:#7E5F1E; --bT:#7F3E33; --bG:#2C6B47; --bC:#2E5487;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font:16px/1.55 var(--f-body);margin:0}
+h1,h2,h3{font-family:var(--f-head);line-height:1.15;text-wrap:balance;margin:0}
+h1{font-size:clamp(28px,4vw,38px);font-weight:700;letter-spacing:-.01em}
+h2{font-size:23px;font-weight:700}
+h3{font-size:18px;font-weight:600}
+p{margin:0}
+button{font:inherit;color:inherit}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--eau);outline-offset:2px}
+.mono{font-family:var(--f-mono);font-weight:500}
+sub{font-size:.7em}
+
+/* shell */
+.app{display:grid;grid-template-columns:var(--side) 1fr;min-height:100vh}
+.side{position:sticky;top:env(safe-area-inset-top,0px);align-self:start;height:100vh;padding:22px 16px;border-right:1px solid var(--line);display:flex;flex-direction:column;gap:22px;overflow:auto}
+.brand{display:flex;gap:10px;align-items:center;text-decoration:none}
+.brand-mark{width:38px;height:38px;flex:none}
+.brand b{font-family:var(--f-head);font-size:18px;display:block;line-height:1.1}
+.brand span{font-size:12px;color:var(--ink-2)}
+.nav{display:flex;flex-direction:column;gap:2px}
+.nav a{display:flex;align-items:center;gap:10px;padding:9px 10px;border-radius:8px;text-decoration:none;color:var(--ink-2);font-weight:700;font-size:15px}
+.nav a:hover{background:var(--surface-2);color:var(--ink)}
+.nav a.on{background:var(--ink);color:var(--bg)}
+.nav svg{width:18px;height:18px;flex:none}
+.side-h{font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-2);font-weight:700;margin-bottom:6px}
+.side-ch{display:flex;flex-direction:column;gap:9px}
+.side-ch a{text-decoration:none;display:grid;grid-template-columns:1fr auto;gap:3px 8px;font-size:14px}
+.side-ch a .bar{grid-column:1/-1}
+.side-ch a span:last-of-type{font-variant-numeric:tabular-nums;color:var(--ink-2);font-size:13px}
+.sync{margin-top:auto;font-size:12px;color:var(--ink-2);display:flex;gap:6px;align-items:center}
+.sync i{width:8px;height:8px;border-radius:50%;background:var(--ink-2);flex:none}
+.sync.ok i{background:var(--good)}
+main{padding:28px clamp(16px,4vw,48px) 90px;min-width:0;max-width:1100px;width:100%}
+.tabs{display:none}
+
+@media (max-width:860px){
+  .app{grid-template-columns:1fr}
+  .side{display:none}
+  main{padding:20px 16px 110px}
+  .tabs{display:grid;grid-template-columns:repeat(5,1fr);position:fixed;left:0;right:0;bottom:0;z-index:20;background:var(--surface);border-top:1px solid var(--line);padding:6px 4px calc(6px + env(safe-area-inset-bottom,0px))}
+  .tabs a{display:flex;flex-direction:column;align-items:center;gap:2px;font-size:11px;font-weight:700;text-decoration:none;color:var(--ink-2);padding:4px 0;border-radius:8px}
+  .tabs a.on{color:var(--ink);background:var(--surface-2)}
+  .tabs svg{width:20px;height:20px}
+}
+
+/* common */
+.eyebrow{font-size:12px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:var(--ink-2)}
+.head{display:flex;flex-direction:column;gap:8px;margin-bottom:24px}
+.head p.lead{color:var(--ink-2);max-width:62ch}
+.stack{display:flex;flex-direction:column;gap:18px}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.grid{display:grid;gap:14px}
+.g2{grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr))}
+.g3{grid-template-columns:repeat(auto-fill,minmax(min(100%,250px),1fr))}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:18px}
+.btn{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);background:var(--surface);border-radius:8px;padding:9px 14px;font-weight:700;font-size:15px;cursor:pointer;text-decoration:none;line-height:1.2}
+.btn:hover{border-color:var(--ink-2)}
+.btn.pri{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.btn.pri:hover{opacity:.9}
+.btn.sm{padding:6px 10px;font-size:14px}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+.bar{height:6px;border-radius:3px;background:var(--surface-2);overflow:hidden}
+.bar>i{display:block;height:100%;border-radius:3px;background:var(--c,var(--ink))}
+.chip{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:3px 9px;border-radius:99px;background:var(--cs,var(--surface-2));color:var(--c,var(--ink))}
+.muted{color:var(--ink-2)}
+.small{font-size:14px}
+[data-ch="eau"]{--c:var(--eau);--cs:var(--eau-soft)}
+[data-ch="glu"]{--c:var(--glu);--cs:var(--glu-soft)}
+[data-ch="lip"]{--c:var(--lip);--cs:var(--lip-soft)}
+[data-ch="pro"]{--c:var(--pro);--cs:var(--pro-soft)}
+[data-ch="adn"]{--c:var(--adn);--cs:var(--adn-soft)}
+.empty{padding:28px;text-align:center;color:var(--ink-2);font-size:15px}
+
+/* dashboard */
+.dash-top{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:14px;margin-bottom:28px}
+@media (max-width:760px){.dash-top{grid-template-columns:1fr}}
+.overall{display:flex;gap:22px;align-items:center;flex-wrap:wrap}
+.ring{width:118px;height:118px;flex:none}
+.ring .bgc{stroke:var(--surface-2)} .ring .fgc{stroke:var(--ink)}
+.ring text{fill:var(--ink);font-family:var(--f-head);font-weight:700}
+.stats{display:grid;grid-template-columns:repeat(3,auto);gap:4px 22px}
+.stats b{font-family:var(--f-head);font-size:28px;font-variant-numeric:tabular-nums;line-height:1}
+.stats span{font-size:13px;color:var(--ink-2)}
+.next h3{margin:6px 0 4px}
+.chcards{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,200px),1fr));gap:12px;margin-bottom:28px}
+.chcard{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:16px;display:flex;flex-direction:column;gap:10px;text-decoration:none;position:relative;overflow:hidden}
+.chcard:hover{border-color:var(--c)}
+.chcard .f{font-family:var(--f-mono);color:var(--c);font-size:15px;font-weight:600}
+.chcard h3{font-size:17px}
+.chcard .meta{display:flex;justify-content:space-between;font-size:13px;color:var(--ink-2);font-variant-numeric:tabular-nums}
+.sec-title{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:12px;gap:10px;flex-wrap:wrap}
+.chart svg{width:100%;height:auto;display:block}
+.chart .gl{stroke:var(--line);stroke-width:1}
+.chart .ax{fill:var(--ink-2);font:12px var(--f-body)}
+.chart .ln{stroke:var(--ink);stroke-width:2.5;fill:none}
+.chart .ar{fill:var(--ink);opacity:.08}
+.chart .dt{fill:var(--surface);stroke:var(--ink);stroke-width:2}
+.chart .dt.ex{fill:var(--ink)}
+.heat{display:grid;grid-auto-flow:column;grid-template-rows:repeat(7,13px);gap:3px;overflow-x:auto;padding-bottom:4px}
+.heat i{width:13px;height:13px;border-radius:3px;background:var(--surface-2)}
+.heat i.l1{background:color-mix(in srgb,var(--ink) 28%,var(--surface-2))}
+.heat i.l2{background:color-mix(in srgb,var(--ink) 50%,var(--surface-2))}
+.heat i.l3{background:color-mix(in srgb,var(--ink) 72%,var(--surface-2))}
+.heat i.l4{background:var(--ink)}
+
+/* course */
+.ch-hero{border-radius:var(--r);padding:24px;background:var(--cs);display:grid;grid-template-columns:1fr minmax(0,260px);gap:20px;align-items:center;margin-bottom:22px}
+.ch-hero .f{font-family:var(--f-mono);color:var(--c);font-weight:600;font-size:18px}
+.ch-hero svg{width:100%;height:auto}
+@media (max-width:700px){.ch-hero{grid-template-columns:1fr}}
+.toc{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:26px}
+.toc a{font-size:14px;padding:5px 10px;border-radius:99px;border:1px solid var(--line);text-decoration:none;background:var(--surface);display:inline-flex;gap:6px;align-items:center}
+.toc a.read::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--c)}
+.sec{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:clamp(16px,3vw,28px);margin-bottom:16px;display:flex;flex-direction:column;gap:14px;scroll-margin-top:16px}
+.sec h2{display:flex;gap:10px;align-items:baseline}
+.sec h2 .n{font-family:var(--f-mono);font-size:15px;color:var(--c)}
+.sec p,.sec li{max-width:68ch}
+.sec ul{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px}
+.sec .done{align-self:flex-start}
+.sec .done.on{background:var(--cs);border-color:var(--c);color:var(--c)}
+.eq{font-family:var(--f-mono);background:var(--surface-2);border-radius:8px;padding:10px 14px;font-size:15px;overflow-x:auto;white-space:nowrap}
+.callout{border-radius:8px;padding:12px 14px;font-size:15px;display:flex;flex-direction:column;gap:4px;border:1px solid var(--line)}
+.callout b.t{font-size:12px;letter-spacing:.08em;text-transform:uppercase}
+.callout.trap{background:var(--bad-soft);border-color:transparent}.callout.trap b.t{color:var(--bad)}
+.callout.key{background:var(--cs);border-color:transparent}.callout.key b.t{color:var(--c)}
+.callout.write{background:var(--surface);border-style:dashed}.callout.write q{font-style:italic}
+.tbl-wrap{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:15px}
+th,td{text-align:left;padding:9px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-2)}
+.fig{margin:0;display:flex;flex-direction:column;gap:6px}
+.fig-sc{overflow-x:auto;background:var(--bg);border-radius:8px;padding:12px}
+.fig svg{display:block;width:100%;max-width:560px;height:auto;margin:0 auto}
+.fig.wide svg{max-width:none;min-width:420px}
+.fig figcaption{font-size:13px;color:var(--ink-2)}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px}
+.tile{background:var(--bg);border-radius:8px;padding:14px;display:flex;flex-direction:column;gap:2px}
+.tile b{font-family:var(--f-mono);font-size:30px;line-height:1}
+.props{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));gap:10px}
+.props div{background:var(--bg);border-radius:8px;padding:14px;font-size:15px}
+.props b{display:block;margin-bottom:4px;font-family:var(--f-head);font-size:16px}
+.live{display:flex;flex-direction:column;gap:10px;background:var(--bg);border-radius:8px;padding:14px}
+.live input{font:600 18px var(--f-mono);letter-spacing:.15em;text-transform:uppercase;padding:8px 10px;border:1px solid var(--line);border-radius:8px;background:var(--surface);color:var(--ink);width:100%;max-width:420px}
+.ch-foot{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-top:8px}
+
+/* svg drawing tokens */
+.sv-bond{stroke:var(--ink-2);stroke-width:3}
+.sv-bonds{stroke:var(--ink-2);stroke-width:1.6}
+.sv-O{fill:var(--eau)} .sv-H{fill:var(--surface);stroke:var(--ink-2);stroke-width:1.5}
+.sv-in{fill:#fff;font:700 15px var(--f-body)} .sv-inH{fill:var(--ink);font:700 13px var(--f-body)}
+.sv-hb{stroke:var(--eau);stroke-width:2.5;stroke-dasharray:4 5}
+.sv-l{fill:var(--ink);font:700 13px var(--f-body)}
+.sv-s{fill:var(--ink-2);font:12.5px var(--f-body)}
+.sv-neg{fill:var(--bad)} .sv-pos{fill:var(--eau)}
+.sv-lead{stroke:var(--ink-2);stroke-width:1}
+.sv-glu{fill:var(--glu-soft);stroke:var(--glu);stroke-width:2.2}
+.sv-glut{fill:var(--glu);font:700 14px var(--f-body)}
+.sv-gly{fill:var(--lip-soft);stroke:var(--lip);stroke-width:2}
+.sv-chain{fill:none;stroke:var(--ink);stroke-width:3;stroke-linejoin:round;stroke-linecap:round}
+.sv-dbl{stroke:var(--lip)}
+.sv-head{fill:var(--glu-soft);stroke:var(--glu);stroke-width:2}
+.sv-tail{stroke:var(--ink-2);stroke-width:3;stroke-linecap:round}
+.sv-water{fill:var(--eau-soft)}
+.sv-ring{fill:var(--lip-soft);stroke:var(--lip);stroke-width:2.5;stroke-linejoin:round}
+.sv-C{fill:var(--ink)} .sv-Ct{fill:var(--bg);font:700 16px var(--f-body)}
+.sv-am{fill:var(--pro-soft);stroke:var(--pro);stroke-width:2}
+.sv-co{fill:var(--glu-soft);stroke:var(--glu);stroke-width:2}
+.sv-R{fill:var(--adn-soft);stroke:var(--adn);stroke-width:2}
+.sv-Hc{fill:var(--surface);stroke:var(--ink-2);stroke-width:1.5}
+.sv-gt{fill:var(--ink);font:700 15px var(--f-mono)}
+.sv-aa{fill:var(--pro-soft);stroke:var(--pro);stroke-width:2}
+.sv-aat{fill:var(--pro);font:700 11px var(--f-body)}
+.sv-bb{stroke:var(--ink-2);stroke-width:2.5}
+.sv-S{fill:var(--pro-soft);stroke:var(--pro);stroke-width:1.5}
+.sv-P{fill:var(--glu-soft);stroke:var(--glu);stroke-width:1.5}
+.sv-St{fill:var(--ink);font:700 12px var(--f-body)}
+.sv-pair{stroke:var(--ink-2);stroke-width:2;stroke-dasharray:2 5;stroke-linecap:round}
+.sv-bA{fill:var(--bA)} .sv-bT{fill:var(--bT)} .sv-bG{fill:var(--bG)} .sv-bC{fill:var(--bC)}
+.sv-bq{fill:var(--surface);stroke:var(--ink-2);stroke-width:1.5;stroke-dasharray:3 3}
+.sv-bt{fill:var(--ink);font:700 16px var(--f-mono)}
+.sv-ok{stroke:var(--good);stroke-width:3;fill:none} .sv-ko{stroke:var(--bad);stroke-width:3;fill:none}
+.sv-helix1{stroke:var(--adn);stroke-width:4;fill:none;stroke-linecap:round}
+.sv-helix2{stroke:var(--adn);stroke-width:4;fill:none;opacity:.45;stroke-linecap:round}
+.sv-rung{stroke-width:3;stroke-linecap:round}
+.sv-chr{fill:var(--adn-soft);stroke:var(--adn);stroke-width:2}
+.sv-cen{fill:var(--adn)}
+.sv-cell{fill:var(--surface);stroke:var(--ink-2);stroke-width:1.5}
+.sv-extra{fill:var(--eau-soft);stroke:var(--eau);stroke-width:1.5}
+.sv-vessel{fill:var(--bad-soft);stroke:var(--bad);stroke-width:1.5}
+.sv-lymph{fill:var(--glu-soft);stroke:var(--glu);stroke-width:1.5}
+.sv-panel{fill:var(--surface);stroke:var(--line)}
+.sv-arrow{stroke:var(--ink-2);stroke-width:2.5;fill:none}
+.sv-arrowh{fill:var(--ink-2)}
+.sv-box{fill:var(--eau-soft);stroke:var(--eau);stroke-width:2}
+.sv-box2{fill:var(--glu-soft);stroke:var(--glu);stroke-width:2}
+.pin circle{fill:var(--ink)} .pin text{fill:var(--bg);font:700 13px var(--f-body)}
+
+/* practice */
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px;align-items:center}
+.fchip{border:1.5px solid var(--line);background:var(--surface);border-radius:99px;padding:6px 12px;font-weight:700;font-size:14px;cursor:pointer;color:var(--ink-2)}
+.fchip.on{border-color:var(--c);background:var(--cs);color:var(--c)}
+.modes{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,240px),1fr));gap:12px}
+.mode{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:16px;display:flex;flex-direction:column;gap:8px;text-align:left;cursor:pointer}
+.mode:hover{border-color:var(--ink-2)}
+.mode .ic{width:34px;height:34px;border-radius:8px;background:var(--surface-2);display:grid;place-items:center}
+.mode .ic svg{width:20px;height:20px}
+.mode b{font-family:var(--f-head);font-size:17px}
+.mode span{font-size:14px;color:var(--ink-2)}
+.mode .badge{align-self:flex-start;font-size:12px;font-weight:700;background:var(--bad-soft);color:var(--bad);padding:2px 8px;border-radius:99px}
+.mode.feature{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.mode.feature span{color:color-mix(in srgb,var(--bg) 75%,transparent)}
+.mode.feature .ic{background:color-mix(in srgb,var(--bg) 15%,transparent)}
+.mode.feature .badge{background:var(--bg);color:var(--bad)}
+.mode-h{margin:26px 0 12px}
+
+.sess{max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:16px}
+.sess-top{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.sess-top .t{font-family:var(--f-head);font-weight:700;font-size:18px}
+.sess-top .cnt{font-variant-numeric:tabular-nums;color:var(--ink-2);font-size:14px}
+.timer{font-family:var(--f-mono);font-weight:600;font-variant-numeric:tabular-nums;padding:4px 10px;border-radius:8px;background:var(--surface-2)}
+.timer.low{background:var(--bad-soft);color:var(--bad)}
+.qcard{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:clamp(16px,3vw,26px);display:flex;flex-direction:column;gap:16px}
+.qtext{font-family:var(--f-head);font-size:21px;font-weight:600;line-height:1.3}
+.choices{display:flex;flex-direction:column;gap:8px}
+.choice{display:flex;gap:12px;align-items:flex-start;text-align:left;border:1.5px solid var(--line);background:var(--surface);border-radius:8px;padding:12px 14px;cursor:pointer;font-size:16px}
+.choice:hover:not(:disabled){border-color:var(--ink-2)}
+.choice kbd{font:600 12px var(--f-mono);border:1px solid var(--line);border-radius:5px;padding:1px 6px;color:var(--ink-2);flex:none;margin-top:2px}
+.choice.ok{border-color:var(--good);background:var(--good-soft)}
+.choice.ko{border-color:var(--bad);background:var(--bad-soft)}
+.choice:disabled{cursor:default}
+.vf{flex-direction:row}.vf .choice{flex:1;justify-content:center;font-weight:700}
+.fb{border-radius:8px;padding:12px 14px;display:flex;flex-direction:column;gap:6px}
+.fb.ok{background:var(--good-soft)}.fb.ko{background:var(--bad-soft)}
+.fb b{font-family:var(--f-head);font-size:16px}
+.fb.ok b{color:var(--good)}.fb.ko b{color:var(--bad)}
+.foot{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:center}
+.flash{min-height:230px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;gap:12px;cursor:pointer;padding:30px 22px}
+.flash .front{font-family:var(--f-head);font-size:26px;font-weight:700;max-width:24ch}
+.flash .back{font-size:18px;max-width:46ch}
+.flash .hint{font-size:13px;color:var(--ink-2)}
+textarea{width:100%;min-height:130px;font:16px/1.5 var(--f-body);padding:12px;border-radius:8px;border:1px solid var(--line);background:var(--bg);color:var(--ink);resize:vertical}
+.kw{display:flex;gap:6px;flex-wrap:wrap}
+.kw span{font-size:13px;font-weight:700;padding:3px 9px;border-radius:99px;background:var(--surface-2);color:var(--ink-2)}
+.kw span.hit{background:var(--good-soft);color:var(--good)}
+.model{background:var(--bg);border-radius:8px;padding:12px 14px;font-size:16px}
+.res-big{display:flex;align-items:baseline;gap:10px}
+.res-big b{font-family:var(--f-head);font-size:56px;line-height:1;font-variant-numeric:tabular-nums}
+.brk{display:flex;flex-direction:column;gap:10px}
+.brk div{display:grid;grid-template-columns:110px 1fr 60px;gap:10px;align-items:center;font-size:14px;font-variant-numeric:tabular-nums}
+.wrong{display:flex;flex-direction:column;gap:10px}
+.wrong div{border-left:3px solid var(--bad);padding:4px 0 4px 12px;font-size:15px;display:flex;flex-direction:column;gap:3px}
+.bases{display:flex;gap:6px;flex-wrap:wrap}
+.bases .grp{display:flex;gap:4px;padding:4px;border-radius:8px;background:var(--surface-2)}
+.bases input{width:38px;height:44px;text-align:center;font:700 20px var(--f-mono);text-transform:uppercase;border:1.5px solid var(--line);border-radius:6px;background:var(--surface);color:var(--ink)}
+.bases input.ok{border-color:var(--good);background:var(--good-soft)}
+.bases input.ko{border-color:var(--bad);background:var(--bad-soft)}
+.bases .top{width:38px;height:30px;display:grid;place-items:center;font:700 18px var(--f-mono)}
+.basecol{display:flex;flex-direction:column;align-items:center;gap:4px}
+.lab-list{display:grid;gap:8px}
+.lab-list label{display:grid;grid-template-columns:30px 1fr;gap:10px;align-items:center}
+.lab-list .n{width:26px;height:26px;border-radius:50%;background:var(--ink);color:var(--bg);display:grid;place-items:center;font-weight:700;font-size:13px}
+select{font:inherit;font-size:15px;padding:8px;border-radius:8px;border:1.5px solid var(--line);background:var(--surface);color:var(--ink);width:100%}
+select.ok{border-color:var(--good);background:var(--good-soft)} select.ko{border-color:var(--bad);background:var(--bad-soft)}
+.pool{display:flex;gap:8px;flex-wrap:wrap;min-height:44px;padding:10px;border:1.5px dashed var(--line);border-radius:8px}
+.tok{border:1.5px solid var(--line);background:var(--surface);border-radius:99px;padding:6px 12px;font-size:15px;cursor:pointer;font-weight:700}
+.tok.sel{border-color:var(--ink);background:var(--ink);color:var(--bg)}
+.tok.ok{border-color:var(--good);background:var(--good-soft);color:var(--good)}
+.tok.ko{border-color:var(--bad);background:var(--bad-soft);color:var(--bad)}
+.bins{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,180px),1fr));gap:10px}
+.bin{border:1.5px solid var(--line);border-radius:var(--r);padding:10px;display:flex;flex-direction:column;gap:8px;min-height:110px;background:var(--surface);cursor:pointer;text-align:left}
+.bin.armed{border-color:var(--ink);border-style:dashed}
+.bin h3{font-size:15px}
+.bin .in{display:flex;gap:6px;flex-wrap:wrap}
+
+/* progress */
+.skills{display:flex;flex-direction:column;gap:6px}
+.skill{display:flex;gap:12px;align-items:flex-start;padding:10px 12px;border-radius:8px;border:1px solid var(--line);background:var(--surface);cursor:pointer;text-align:left;font-size:15px}
+.skill .box{width:22px;height:22px;border-radius:6px;border:2px solid var(--ink-2);flex:none;display:grid;place-items:center;margin-top:1px}
+.skill.on .box{background:var(--good);border-color:var(--good)}
+.skill.on .box::after{content:"";width:9px;height:5px;border-left:2.5px solid #fff;border-bottom:2.5px solid #fff;transform:rotate(-45deg) translate(1px,-1px)}
+.skill.on{color:var(--ink-2)}
+.hist{display:flex;flex-direction:column}
+.hist div{display:grid;grid-template-columns:1fr auto auto;gap:14px;padding:9px 0;border-bottom:1px solid var(--line);font-size:14px;font-variant-numeric:tabular-nums}
+.danger{border:1px solid var(--bad);color:var(--bad);background:transparent}
+.confirm{display:flex;gap:10px;align-items:center;flex-wrap:wrap;padding:12px;border-radius:8px;background:var(--bad-soft)}
+@media (prefers-reduced-motion:no-preference){
+  .bar>i{transition:width .5s ease}
+  .qcard,.sec{animation:rise .25s ease both}
+  @keyframes rise{from{transform:translateY(6px)}to{transform:none}}
+}
+</style>
+
+<style>html{-webkit-text-size-adjust:100%}:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}img{max-width:100%}[hidden]{display:none!important}</style>
+</head>
+<body>
+<div class="app">
+  <aside class="side" id="side"></aside>
+  <main id="main"></main>
+</div>
+<nav class="tabs" id="tabs"></nav>
+
+<script>
+"use strict";
+/* ================= CHAPITRES ================= */
+const CH=[
+  {id:"eau",name:"L’eau et la composition du vivant",short:"Eau",f:"H₂O"},
+  {id:"glu",name:"Les glucides",short:"Glucides",f:"C₆H₁₂O₆"},
+  {id:"lip",name:"Les lipides",short:"Lipides",f:"glycérol + AG"},
+  {id:"pro",name:"Les protides",short:"Protéines",f:"H₂N–C–COOH"},
+  {id:"adn",name:"L’ADN",short:"ADN",f:"A–T · G–C"}
+];
+const CHM=Object.fromEntries(CH.map(c=>[c.id,c]));
+
+/* ================= OUTILS ================= */
+const $=s=>document.querySelector(s);
+const esc=s=>String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
+const shuffle=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
+const pad=n=>String(n).padStart(2,"0");
+const dkey=d=>`${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}`;
+const today=()=>dkey(new Date());
+const norm=s=>s.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g,"");
+const COMP={A:"T",T:"A",G:"C",C:"G"};
+function rng(seed){return()=>{seed=(seed*16807)%2147483647;return(seed-1)/2147483646}}
+
+/* ================= SCHÉMAS SVG ================= */
+let PINS=null,NOL=false;
+function L(k,x,y,t,a="middle",c="sv-l"){
+  if(PINS){const i=PINS.indexOf(k);if(i>=0)return `<g class="pin"><circle cx="${x}" cy="${y-5}" r="12"/><text x="${x}" y="${y}" text-anchor="middle">${i+1}</text></g>`}
+  if(NOL)return "";
+  return `<text x="${x}" y="${y}" text-anchor="${a}" class="${c}">${t}</text>`;
+}
+function LL(x1,y1,x2,y2){return NOL&&!PINS?"":`<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" class="sv-lead"/>`}
+const svg=(w,h,b,lab)=>`<svg viewBox="0 0 ${w} ${h}" role="img" aria-label="${esc(lab||"")}">${b}</svg>`;
+function pts(cx,cy,r,n,rot){let p=[];for(let i=0;i<n;i++){const a=(rot+i*360/n)*Math.PI/180;p.push([cx+r*Math.cos(a),cy+r*Math.sin(a)])}return p}
+const P2=p=>p.map(q=>q[0].toFixed(1)+","+q[1].toFixed(1)).join(" ");
+const hex=(cx,cy,r,c="sv-glu")=>`<polygon points="${P2(pts(cx,cy,r,6,0))}" class="${c}"/>`;
+function arrow(x1,y,x2){return `<line x1="${x1}" y1="${y}" x2="${x2-8}" y2="${y}" class="sv-arrow"/><polygon points="${x2},${y} ${x2-11},${y-6} ${x2-11},${y+6}" class="sv-arrowh"/>`}
+
+function waterMol(o,h1,h2){
+  return `<line x1="${o[0]}" y1="${o[1]}" x2="${h1[0]}" y2="${h1[1]}" class="sv-bond"/><line x1="${o[0]}" y1="${o[1]}" x2="${h2[0]}" y2="${h2[1]}" class="sv-bond"/>
+  <circle cx="${o[0]}" cy="${o[1]}" r="22" class="sv-O"/><text x="${o[0]}" y="${o[1]+5}" text-anchor="middle" class="sv-in">O</text>
+  <circle cx="${h1[0]}" cy="${h1[1]}" r="14" class="sv-H"/><text x="${h1[0]}" y="${h1[1]+5}" text-anchor="middle" class="sv-inH">H</text>
+  <circle cx="${h2[0]}" cy="${h2[1]}" r="14" class="sv-H"/><text x="${h2[0]}" y="${h2[1]+5}" text-anchor="middle" class="sv-inH">H</text>`;
+}
+function zig(x0,y0,n,dx,amp,kink){
+  let p=[];for(let i=0;i<=n;i++)p.push([x0+i*dx,y0+(i%2?-amp:0)]);
+  if(kink>0){const th=.55,[kx,ky]=p[kink];for(let i=kink+1;i<=n;i++){const ux=p[i][0]-kx,uy=p[i][1]-ky;p[i]=[kx+ux*Math.cos(th)-uy*Math.sin(th),ky+ux*Math.sin(th)+uy*Math.cos(th)]}}
+  let s=`<polyline points="${P2(p)}" class="sv-chain"/>`;
+  if(kink>0){const a=p[kink-1],b=p[kink],vx=b[0]-a[0],vy=b[1]-a[1],l=Math.hypot(vx,vy),nx=-vy/l*6,ny=vx/l*6;
+    s+=`<line x1="${(a[0]+nx+vx*.18).toFixed(1)}" y1="${(a[1]+ny+vy*.18).toFixed(1)}" x2="${(b[0]+nx-vx*.18).toFixed(1)}" y2="${(b[1]+ny-vy*.18).toFixed(1)}" class="sv-chain sv-dbl"/>`}
+  return s;
+}
+
+const SV={
+water(){
+  return svg(340,200,
+    waterMol([95,80],[58,114],[134,110])+waterMol([258,116],[294,88],[276,154])+
+    `<line x1="149" y1="110" x2="235" y2="114" class="sv-hb"/>`+
+    L("dm",95,46,"δ−","middle","sv-l sv-neg")+L("dp",30,140,"δ+","middle","sv-l sv-pos")+
+    (NOL?"":`<text x="258" y="82" text-anchor="middle" class="sv-l sv-neg">δ−</text><text x="318" y="78" class="sv-l sv-pos">δ+</text>`)+
+    L("hb",192,100,"pont H","middle")+
+    LL(76,97,76,170)+L("cov",76,188,"liaison covalente O–H","middle","sv-s"),
+  "Deux molécules d’eau reliées par un pont hydrogène");
+},
+ice(){
+  const r=rng(11);let b=`<rect x="6" y="20" width="160" height="150" rx="8" class="sv-panel"/><rect x="184" y="20" width="160" height="150" rx="8" class="sv-panel"/>`;
+  const w=(x,y,a)=>`<g transform="translate(${x.toFixed(1)} ${y.toFixed(1)}) rotate(${a.toFixed(0)})"><line x1="0" y1="0" x2="-7" y2="6" class="sv-bonds"/><line x1="0" y1="0" x2="7" y2="6" class="sv-bonds"/><circle r="5.5" class="sv-O"/><circle cx="-7" cy="6" r="3" class="sv-H"/><circle cx="7" cy="6" r="3" class="sv-H"/></g>`;
+  for(let i=0;i<7;i++)for(let j=0;j<7;j++)b+=w(24+j*21+r()*8-4,38+i*19+r()*7-3,r()*360);
+  const R=21,s3=Math.sqrt(3),V=new Map(),E=new Set();
+  for(let row=0;row<4;row++)for(let col=0;col<4;col++){
+    const cx=196+col*R*s3+(row%2)*R*s3/2,cy=38+row*1.5*R;
+    const p=pts(cx,cy,R,6,-90).map(q=>[Math.round(q[0]),Math.round(q[1])]);
+    p.forEach((q,k)=>{const n=p[(k+1)%6];const ok=v=>v[0]>190&&v[0]<338&&v[1]>26&&v[1]<164;if(ok(q))V.set(q.join(),q);if(ok(q)&&ok(n)){const key=[q.join(),n.join()].sort().join("|");E.add(key)}});
+  }
+  E.forEach(e=>{const[a,c]=e.split("|").map(s=>s.split(",").map(Number));b+=`<line x1="${a[0]}" y1="${a[1]}" x2="${c[0]}" y2="${c[1]}" class="sv-hb" style="stroke-width:1.5"/>`});
+  V.forEach(q=>{b+=w(q[0],q[1]-2,r()*360)});
+  b+=L("liq",86,14,"Eau liquide","middle")+L("gl",264,14,"Glace","middle")+
+     L("liq2",86,190,"molécules serrées","middle","sv-s")+L("gl2",264,190,"réseau ouvert : moins dense","middle","sv-s");
+  return svg(350,200,b,"Comparaison eau liquide et glace");
+},
+comp(){
+  return svg(360,220,
+    `<rect x="6" y="6" width="348" height="208" rx="14" class="sv-extra"/>
+     <ellipse cx="80" cy="82" rx="54" ry="38" class="sv-cell"/><ellipse cx="196" cy="74" rx="50" ry="34" class="sv-cell"/><ellipse cx="135" cy="146" rx="48" ry="30" class="sv-cell"/>
+     <rect x="18" y="186" width="250" height="20" rx="10" class="sv-vessel"/>
+     <rect x="304" y="30" width="22" height="150" rx="11" class="sv-lymph"/>`+
+    L("in1",80,87,"intracellulaire","middle","sv-s")+L("in2",196,79,"intracellulaire","middle","sv-s")+L("in3",135,151,"intracellulaire","middle","sv-s")+
+    L("int",252,140,"liquide","middle","sv-s")+L("int2",252,155,"interstitiel","middle","sv-s")+
+    L("pl",143,201,"plasma sanguin","middle","sv-s")+L("ly",292,110,"lymphe","end","sv-s")+
+    L("ext",180,26,"Compartiment extracellulaire","middle"),
+  "Compartiments de l’eau dans l’organisme");
+},
+sacch(){
+  let b="";const r=15;
+  const row=(y,n,more)=>{let s="";for(let i=0;i<n;i++){const x=180+i*38;if(i)s+=`<line x1="${x-38+r}" y1="${y}" x2="${x-r}" y2="${y}" class="sv-bond"/>`;s+=hex(x,y,r)}if(more)s+=`<text x="${180+n*38-12}" y="${y+5}" class="sv-glut">…</text>`;return s};
+  b+=row(36,1)+row(106,2)+row(176,5,true);
+  b+=L("m",8,32,"Monosaccharide","start")+L("m2",8,50,"glucose, fructose, galactose","start","sv-s");
+  b+=L("d",8,102,"Disaccharide","start")+L("d2",8,120,"saccharose, lactose","start","sv-s");
+  b+=L("p",8,172,"Polysaccharide","start")+L("p2",8,190,"amidon, glycogène, cellulose","start","sv-s");
+  return svg(400,210,b,"Monosaccharide, disaccharide et polysaccharide");
+},
+mono(){return svg(160,110,hex(80,55,32)+`<text x="80" y="60" text-anchor="middle" class="sv-glut">${NOL?"":"glucose"}</text>`,"Monosaccharide")},
+di(){return svg(200,110,hex(62,55,30)+`<line x1="92" y1="55" x2="108" y2="55" class="sv-bond"/>`+hex(138,55,30),"Disaccharide")},
+poly(){let b="";for(let i=0;i<7;i++){const x=26+i*44,y=55+(i%2?10:-10);if(i)b+=`<line x1="${26+(i-1)*44+16}" y1="${55+((i-1)%2?10:-10)}" x2="${x-16}" y2="${y}" class="sv-bond"/>`;b+=hex(x,y,17)}b+=`<line x1="158" y1="65" x2="158" y2="92" class="sv-bond"/>`+hex(158,100,14);return svg(330,125,b,"Polysaccharide")},
+monopoly(){
+  let b="";const sq=(x,y,c)=>`<rect x="${x}" y="${y}" width="34" height="34" rx="7" class="${c}"/><text x="${x+17}" y="${y+23}" text-anchor="middle" class="sv-gt">G</text>`;
+  [16,64,112].forEach(x=>b+=sq(x,30,"sv-box"));b+=arrow(160,47,205);
+  for(let i=0;i<4;i++)b+=sq(216+i*36,30,"sv-box2");
+  b+=L("mo",80,96,"monomères (glucose)","middle","sv-s")+L("po",286,96,"polymère (amidon)","middle","sv-s");
+  return svg(380,110,b,"Des monomères de glucose forment un polymère");
+},
+tg(o={}){
+  const k=o.k||[0,6,0];let b=`<rect x="18" y="20" width="76" height="156" rx="8" class="sv-gly"/>`+L("gly",56,103,"Glycérol","middle");
+  [48,98,148].forEach((y,i)=>{b+=`<line x1="94" y1="${y}" x2="116" y2="${y}" class="sv-bond"/>`+zig(116,y,12,17,11,k[i])});
+  b+=L("ag",340,90,"3 acides","start")+L("ag2",340,108,"gras","start");
+  return svg(420,212,b,"Triglycéride : glycérol et trois acides gras");
+},
+satins(){
+  let b=zig(20,40,14,17,11,0)+L("s",20,76,"Saturé : seulement des liaisons simples C–C → chaîne droite","start","sv-s");
+  b+=zig(20,112,14,17,11,7)+L("i",20,196,"Insaturé : au moins une double liaison C=C → coude","start","sv-s");
+  return svg(420,206,b,"Acide gras saturé et insaturé");
+},
+pl(){
+  let b=`<g transform="rotate(90 76 88)">${zig(76,88,9,15,9,0)}</g><g transform="rotate(90 104 88)">${zig(104,88,9,15,9,5)}</g>`;
+  b+=`<circle cx="90" cy="52" r="36" class="sv-head"/><line x1="58" y1="54" x2="122" y2="54" class="sv-bonds"/>`;
+  b+=L("phos",90,44,"phosphate","middle","sv-s")+L("gly",90,72,"glycérol","middle","sv-s");
+  b+=LL(128,52,156,52)+L("tete",160,48,"Tête hydrophile","start")+L("tete2",160,66,"(attirée par l’eau)","start","sv-s");
+  b+=LL(124,160,156,160)+L("queue",160,156,"2 queues hydrophobes","start")+L("queue2",160,174,"(acides gras, fuient l’eau)","start","sv-s");
+  return svg(340,250,b,"Phospholipide : tête hydrophile et deux queues hydrophobes");
+},
+bilayer(){
+  let b=`<rect x="0" y="0" width="340" height="40" class="sv-water"/><rect x="0" y="200" width="340" height="40" class="sv-water"/>`;
+  for(let i=0;i<8;i++){const x=30+i*40;
+    b+=`<line x1="${x-4}" y1="70" x2="${x-4}" y2="114" class="sv-tail"/><line x1="${x+4}" y1="70" x2="${x+4}" y2="114" class="sv-tail"/><circle cx="${x}" cy="60" r="12" class="sv-head"/>`;
+    b+=`<line x1="${x-4}" y1="126" x2="${x-4}" y2="170" class="sv-tail"/><line x1="${x+4}" y1="126" x2="${x+4}" y2="170" class="sv-tail"/><circle cx="${x}" cy="180" r="12" class="sv-head"/>`}
+  b+=L("ext",170,26,"Eau à l’extérieur de la cellule","middle","sv-s")+L("int",170,225,"Eau à l’intérieur (cytoplasme)","middle","sv-s");
+  b+=L("tete",352,64,"têtes hydrophiles","start","sv-s")+L("queue",352,118,"queues hydrophobes","start","sv-s")+L("queue2",352,134,"face à face, au centre","start","sv-s")+L("tete3",352,184,"têtes hydrophiles","start","sv-s");
+  return svg(500,240,b,"Double couche de phospholipides");
+},
+steroid(){
+  const r=30,s3=Math.sqrt(3),A=[50,118],B=[50+r*s3,118],C=[B[0]+r*s3/2,118-1.5*r],D=[C[0]+r*s3/2+r*.688,C[1]];
+  let b=`<polygon points="${P2(pts(...A,r,6,-90))}" class="sv-ring"/><polygon points="${P2(pts(...B,r,6,-90))}" class="sv-ring"/><polygon points="${P2(pts(...C,r,6,-90))}" class="sv-ring"/><polygon points="${P2(pts(...D,r*.8507,5,0))}" class="sv-ring"/>`;
+  if(!NOL&&!PINS)[[A,1],[B,2],[C,3],[D,4]].forEach(([p,n])=>b+=`<text x="${p[0]}" y="${p[1]+5}" text-anchor="middle" class="sv-s">${n}</text>`);
+  b+=L("cyc",222,96,"4 cycles de carbone","start")+L("cyc2",222,114,"reliés entre eux","start","sv-s");
+  return svg(380,160,b,"Squelette commun des stéroïdes : quatre cycles");
+},
+aa(){
+  let b=`<line x1="110" y1="101" x2="230" y2="101" class="sv-bond"/><line x1="170" y1="44" x2="170" y2="150" class="sv-bond"/>
+   <rect x="40" y="84" width="70" height="34" rx="8" class="sv-am"/><text x="75" y="107" text-anchor="middle" class="sv-gt">H₂N</text>
+   <rect x="230" y="84" width="80" height="34" rx="8" class="sv-co"/><text x="270" y="107" text-anchor="middle" class="sv-gt">COOH</text>
+   <circle cx="170" cy="36" r="15" class="sv-Hc"/><text x="170" y="41" text-anchor="middle" class="sv-gt">H</text>
+   <rect x="148" y="148" width="44" height="34" rx="8" class="sv-R"/><text x="170" y="171" text-anchor="middle" class="sv-gt">R</text>
+   <circle cx="170" cy="101" r="22" class="sv-C"/><text x="170" y="107" text-anchor="middle" class="sv-Ct">C</text>`;
+  b+=L("amine",75,142,"groupe amine","middle","sv-s")+L("carb",270,142,"groupe carboxyle","middle","sv-s")+L("h",194,41,"hydrogène","start","sv-s")+L("r",170,204,"radical R (variable)","middle","sv-s")+L("c",112,70,"carbone central","middle","sv-s");
+  return svg(340,214,b,"Structure générale d’un acide aminé");
+},
+peptide(){
+  let b="";const P=[[30,44],[72,44],[114,44],[156,44],[198,44],[240,44]];
+  P.forEach((p,i)=>{if(i)b+=`<line x1="${P[i-1][0]+14}" y1="44" x2="${p[0]-14}" y2="44" class="sv-bond"/>`});
+  P.forEach(p=>b+=`<circle cx="${p[0]}" cy="${p[1]}" r="14" class="sv-aa"/>`+(NOL?"":`<text x="${p[0]}" y="${p[1]+4}" text-anchor="middle" class="sv-aat">aa</text>`));
+  b+=LL(93,40,93,20)+L("pep",93,14,"liaison peptidique","middle","sv-s");
+  b+=arrow(262,44,300)+L("ch",120,82,"chaîne polypeptidique","middle","sv-s");
+  const F=[[312,150],[330,126],[318,102],[294,110],[284,136],[262,150],[250,124],[268,104],[290,86],[316,80],[338,96],[350,122],[344,150]];
+  let path="M"+F.map(p=>p.join(" ")).join(" L");b+=`<path d="${path}" class="sv-bonds" fill="none"/>`;
+  F.forEach(p=>b+=`<circle cx="${p[0]}" cy="${p[1]}" r="9" class="sv-aa"/>`);
+  b+=L("fold",300,178,"repliement en 3D","middle","sv-s");
+  return svg(370,190,b,"Acides aminés reliés en chaîne puis repliés");
+},
+nuc(){
+  let b=`<line x1="50" y1="70" x2="115" y2="70" class="sv-bb"/><line x1="115" y1="70" x2="162" y2="70" class="sv-bb"/>
+   <circle cx="50" cy="70" r="18" class="sv-P"/><text x="50" y="75" text-anchor="middle" class="sv-St">P</text>
+   <polygon points="${P2(pts(115,70,24,5,-90))}" class="sv-S"/><text x="115" y="76" text-anchor="middle" class="sv-St">S</text>
+   <rect x="160" y="52" width="56" height="36" rx="4" class="sv-bA"/><text x="188" y="76" text-anchor="middle" class="sv-bt">A</text>`;
+  b+=L("P",50,34,"phosphate","middle","sv-s")+L("S",115,34,"désoxyribose","middle","sv-s")+L("B",188,34,"base azotée","middle","sv-s");
+  if(!NOL)b+=`<path d="M30 104 v8 h186 v-8" class="sv-lead" fill="none"/>`;
+  b+=L("nuc",123,132,"1 nucléotide","middle");
+  return svg(240,145,b,"Un nucléotide : phosphate, sucre et base");
+},
+dna(o={}){
+  const top=(o.top||"AGTC").split(""),bot=o.bot?o.bot.split(""):top.map(c=>COMP[c]);
+  const n=top.length,x0=72,dx=54,yT=o.tri?66:46,yB=yT+160,W=x0+(n-1)*dx+dx/2+28,H=yB+(o.legend?52:30);
+  let b=`<line x1="${x0}" y1="${yT}" x2="${x0+(n-1)*dx+dx/2}" y2="${yT}" class="sv-bb"/><line x1="${x0}" y1="${yB}" x2="${x0+(n-1)*dx+dx/2}" y2="${yB}" class="sv-bb"/>`;
+  for(let i=0;i<n;i++){const x=x0+i*dx,t=top[i],u=bot[i]||"?";
+    b+=`<line x1="${x}" y1="${yT+16}" x2="${x}" y2="${yB-16}" class="sv-pair"/>`;
+    b+=`<rect x="${x-16}" y="${yT+16}" width="32" height="34" rx="4" class="sv-b${t}"/><text x="${x}" y="${yT+39}" text-anchor="middle" class="sv-bt">${t}</text>`;
+    const known="ATGC".includes(u);
+    b+=`<rect x="${x-16}" y="${yB-50}" width="32" height="34" rx="4" class="${known?"sv-b"+u:"sv-bq"}"/><text x="${x}" y="${yB-27}" text-anchor="middle" class="sv-bt">${known?u:"?"}</text>`;
+    if(o.marks&&o.marks[i]!=null)b+=`<rect x="${x-19}" y="${yB-53}" width="38" height="40" rx="6" class="${o.marks[i]?"sv-ok":"sv-ko"}"/>`;
+    [yT,yB].forEach(y=>{b+=`<polygon points="${P2(pts(x,y,14,5,-90))}" class="sv-S"/><text x="${x}" y="${y+4}" text-anchor="middle" class="sv-St">S</text><circle cx="${x+dx/2}" cy="${y}" r="10" class="sv-P"/><text x="${x+dx/2}" y="${y+4}" text-anchor="middle" class="sv-St">P</text>`});
+  }
+  if(!PINS&&!NOL)b+=`<text x="8" y="${yT+4}" class="sv-s">Brin 1</text><text x="8" y="${yB+4}" class="sv-s">Brin 2</text>`;
+  if(o.tri&&!PINS)for(let k=0;k+2<n;k+=3){const a=x0+k*dx-18,c=x0+(k+2)*dx+18;b+=`<path d="M${a} 36 v-8 h${c-a} v8" class="sv-lead" fill="none"/><text x="${(a+c)/2}" y="20" text-anchor="middle" class="sv-s">triplet ${k/3+1}</text>`}
+  if(PINS)b+=L("S",x0,yT-22,"")+L("P",x0+dx/2,yT-22,"")+L("B",x0-30,yT+38,"")+L("pair",x0+18,yT+82,"");
+  if(o.legend&&!NOL)b+=`<text x="8" y="${yB+34}" class="sv-s">S = sucre désoxyribose · P = phosphate · P + S + base = 1 nucléotide</text>`;
+  return svg(Math.max(W,o.legend?460:0),H,b,"Schéma en échelle de l’ADN");
+},
+helix(){
+  let a="",c="",r="";const cls=["sv-bA","sv-bG","sv-bT","sv-bC"];const col=["var(--bA)","var(--bG)","var(--bT)","var(--bC)"];
+  for(let x=10;x<=350;x+=3){const s=Math.sin((x-10)/26);a+=(x===10?"M":"L")+x+" "+(70+42*s).toFixed(1)+" ";c+=(x===10?"M":"L")+x+" "+(70-42*s).toFixed(1)+" "}
+  let k=0;for(let x=16;x<=346;x+=12){const s=Math.sin((x-10)/26);if(Math.abs(s)<.2)continue;r+=`<line x1="${x}" y1="${(70+40*s).toFixed(1)}" x2="${x}" y2="${(70-40*s).toFixed(1)}" class="sv-rung" style="stroke:${col[k++%4]}"/>`}
+  return svg(360,140,`<path d="${c}" class="sv-helix2"/>${r}<path d="${a}" class="sv-helix1"/>`,"Double hélice d’ADN");
+},
+chromo(){
+  let b=`<rect x="69" y="34" width="22" height="140" rx="11" class="sv-chr"/><circle cx="80" cy="96" r="6" class="sv-cen"/>
+  <rect x="229" y="30" width="22" height="150" rx="11" class="sv-chr" transform="rotate(-16 240 104)"/><rect x="229" y="30" width="22" height="150" rx="11" class="sv-chr" transform="rotate(16 240 104)"/><circle cx="240" cy="104" r="7" class="sv-cen"/>`;
+  b+=L("s1",80,198,"non dupliqué","middle","sv-s")+L("s2",80,214,"= 1 chromosome","middle","sv-s");
+  b+=L("cs",176,30,"chromatide","middle","sv-s")+L("cs2",176,44,"sœur","middle","sv-s")+L("cs3",306,30,"chromatide","middle","sv-s")+L("cs4",306,44,"sœur","middle","sv-s");
+  b+=LL(248,104,296,112)+L("cen",300,116,"centromère","start","sv-s");
+  b+=L("d1",240,206,"dupliqué (en X)","middle","sv-s")+L("d2",240,222,"= toujours 1 chromosome","middle","sv-s");
+  return svg(380,230,b,"Chromosome non dupliqué et dupliqué");
+}
+};
+function draw(key,o,{pins=null,nol=false}={}){PINS=pins;NOL=nol;const s=SV[key](o||{});PINS=null;NOL=false;return s}
+const fig=(key,cap,o,wide)=>`<figure class="fig${wide?" wide":""}"><div class="fig-sc">${draw(key,o)}</div>${cap?`<figcaption>${cap}</figcaption>`:""}</figure>`;
+
+/* ================= COURS ================= */
+const callout=(k,t,h)=>`<div class="callout ${k}"><b class="t">${t}</b><div>${h}</div></div>`;
+const COURSE={
+eau:()=>[
+ {id:"compo",t:"Composition élémentaire du vivant",h:`
+  <p>Trois atomes forment l’essentiel de la matière vivante : l’<b>oxygène</b>, le <b>carbone</b> et l’<b>hydrogène</b>. L’oxygène arrive en tête, surtout parce que notre corps contient beaucoup d’eau (H₂O).</p>
+  <div class="tiles"><div class="tile"><b>O</b><span>Oxygène · 1<sup>er</sup></span></div><div class="tile"><b>C</b><span>Carbone · 2<sup>e</sup></span></div><div class="tile"><b>H</b><span>Hydrogène · 3<sup>e</sup></span></div></div>
+  ${callout("trap","Attention aux pourcentages","Ta fiche indique ≈ 60 % (O), ≈ 35 % (C) et ≈ 20 % (H), mais ces valeurs dépassent 100 % au total. En masse, on cite souvent O ≈ 65 %, C ≈ 18 %, H ≈ 10 %. Retiens surtout l’ordre O > C > H et vérifie avec ton enseignant la valeur attendue.")}`},
+ {id:"molecule",t:"La molécule d’eau est polaire",h:`
+  <p>Une molécule d’eau, <b>H₂O</b>, comporte un oxygène et deux hydrogènes. Elle est <b>polaire</b> : l’oxygène porte une charge partielle négative (<b>δ−</b>) et les hydrogènes une charge partielle positive (<b>δ+</b>). La molécule entière reste <b>neutre</b>.</p>
+  ${fig("water","Deux molécules d’eau : la liaison O–H est à l’intérieur d’une molécule, le pont H relie deux molécules.")}
+  <p>Grâce à sa polarité, l’eau est un <b>solvant universel</b> et le <b>milieu réactionnel</b> des cellules.</p>`},
+ {id:"pontH",t:"Les ponts hydrogène",h:`
+  <p>Un <b>pont hydrogène</b> est une attraction entre l’<b>hydrogène</b> d’une molécule d’eau et l’<b>oxygène d’une autre</b>. Dans l’eau liquide, ces ponts se forment et se rompent continuellement.</p>
+  <div class="tbl-wrap"><table><tr><th></th><th>Liaison covalente O–H</th><th>Pont hydrogène</th></tr>
+  <tr><td><b>Où ?</b></td><td>À l’intérieur d’une molécule</td><td>Entre deux molécules</td></tr>
+  <tr><td><b>Force</b></td><td>Forte</td><td>Plus faible</td></tr>
+  <tr><td><b>Dans l’eau liquide</b></td><td>Stable</td><td>Se forme et se rompt sans arrêt</td></tr></table></div>`},
+ {id:"glace",t:"Pourquoi la glace flotte",h:`
+  <p>Dans la glace, les ponts hydrogène organisent les molécules en un <b>réseau plus ouvert</b>. À masse égale, la glace occupe plus de volume : elle est donc <b>moins dense</b> que l’eau liquide et elle flotte.</p>
+  ${fig("ice","Même nombre de ponts H, mais la glace forme un réseau régulier plein de vides.")}
+  ${callout("key","Conséquence pour le vivant","Une couche de glace en surface isole l’eau située dessous, ce qui permet la survie des organismes aquatiques en hiver.")}`},
+ {id:"props",t:"Les autres particularités de l’eau",h:`
+  <div class="props">
+   <div><b>Cohésion et tension superficielle</b>Les molécules s’attirent grâce aux ponts H : l’eau forme des gouttes et une surface qui résiste à la déformation.</div>
+   <div><b>Adhésion et capillarité</b>L’eau adhère à certaines surfaces et monte dans des tubes très fins (adhésion + cohésion).</div>
+   <div><b>Température</b>L’eau absorbe beaucoup d’énergie avant de se réchauffer. Son évaporation consomme de l’énergie : la transpiration refroidit le corps.</div>
+   <div><b>Pouvoir solvant</b>Elle dissout les substances ioniques ou polaires (sel, sucre) mais mal les non polaires (huile).</div>
+  </div>`},
+ {id:"compart",t:"Les compartiments de l’eau",h:`
+  <ul><li><b>Compartiment intracellulaire</b> : l’eau contenue à l’intérieur des cellules.</li>
+  <li><b>Compartiment extracellulaire</b> : le liquide interstitiel (entre les cellules), le plasma sanguin et la lymphe.</li></ul>
+  ${fig("comp","Tout ce qui est hors des cellules appartient au compartiment extracellulaire.")}`}
+],
+glu:()=>[
+ {id:"def",t:"Définition et rôle",h:`
+  <p>Les glucides sont des molécules organiques constituées de <b>carbone (C)</b>, d’<b>hydrogène (H)</b> et d’<b>oxygène (O)</b>. Ils ont un <b>rôle énergétique</b> : ils fournissent de l’énergie aux cellules (source directe et privilégiée des muscles et organes) ou forment des réserves.</p>
+  <div class="eq">Glucose : C₆H₁₂O₆</div>
+  <p>Respiration cellulaire :</p>
+  <div class="eq">C₆H₁₂O₆ + 6 O₂ → 6 CO₂ + 6 H₂O + énergie</div>`},
+ {id:"cat",t:"Les catégories de glucides",h:`
+  ${fig("sacch","Un hexagone = une unité de sucre.")}
+  <div class="tbl-wrap"><table><tr><th>Catégorie</th><th>Structure</th><th>Exemples</th></tr>
+  <tr><td><b>Monosaccharide</b></td><td>Sucre simple : 1 seule unité</td><td>Glucose, fructose, galactose</td></tr>
+  <tr><td><b>Disaccharide</b></td><td>Sucre double : 2 unités liées</td><td>Saccharose, lactose</td></tr>
+  <tr><td><b>Polysaccharide</b></td><td>Sucre complexe : un grand nombre d’unités reliées</td><td>Amidon, glycogène, cellulose</td></tr></table></div>`},
+ {id:"poly",t:"Les polysaccharides à connaître",h:`
+  <div class="props">
+   <div><b>Amidon</b>Réserve de glucose chez les <b>végétaux</b>.</div>
+   <div><b>Glycogène</b>Réserve de glucose chez les <b>animaux</b>.</div>
+   <div><b>Cellulose</b>Composant de la <b>paroi</b> des cellules végétales.</div>
+  </div>`},
+ {id:"mono",t:"Monomères et polymères",h:`
+  <p><b>Monomère</b> : petite molécule capable de s’assembler avec d’autres pour former un polymère.<br><b>Polymère</b> : grande molécule constituée d’un grand nombre d’unités répétées appelées monomères.</p>
+  ${fig("monopoly","Le glucose est l’unité constitutive ; l’amidon est le polymère.")}
+  ${callout("key","À retenir","Tous les polysaccharides sont des polymères, mais tous les polymères ne sont pas des polysaccharides. Une protéine est aussi un polymère, mais ce n’est pas un glucide.")}`}
+],
+lip:()=>[
+ {id:"tg",t:"Les triglycérides",h:`
+  <p><b>Structure</b> : une molécule de <b>glycérol</b> liée à <b>trois acides gras</b>. « Tri » rappelle qu’il y a trois queues.</p>
+  ${fig("tg","Ici, une queue est insaturée (coude) et deux sont saturées, mais toutes les combinaisons existent.")}
+  <p><b>Rôle</b> : réserve d’énergie stockée sous forme de graisses. Exemples : graisses animales et huiles végétales.</p>
+  ${callout("trap","Piège à éviter","Un triglycéride n’a pas forcément deux acides gras saturés et un insaturé. Les trois queues peuvent avoir différentes combinaisons.")}`},
+ {id:"sat",t:"Acides gras saturés et insaturés",h:`
+  ${fig("satins","La double liaison est dessinée en couleur.")}
+  <ul><li><b>Saturé</b> : uniquement des liaisons simples entre les carbones. Graisses animales, solides à température ambiante.</li>
+  <li><b>Insaturé</b> : au moins une double liaison C=C ; les autres peuvent être simples. Une double liaison <i>cis</i> produit un coude. Huiles végétales, liquides à température ambiante.</li>
+  <li><b>Mono-insaturé</b> : une double liaison. <b>Polyinsaturé</b> : plusieurs doubles liaisons.</li></ul>
+  ${callout("key","Lire le zigzag","Chaque sommet et chaque extrémité représente un atome de carbone. Les hydrogènes ne sont pas dessinés.")}`},
+ {id:"pl",t:"Les phospholipides",h:`
+  <p>Dans le modèle du cours : un <b>glycérol</b> lié à <b>deux acides gras</b> et à un <b>groupement phosphate</b>. Le phosphate fait partie de la même molécule.</p>
+  ${fig("pl")}
+  <p>La <b>tête</b> (glycérol + phosphate) est <b>hydrophile</b> : elle interagit avec l’eau. Les deux <b>queues</b> sont <b>hydrophobes</b>.</p>
+  ${callout("trap","Piège à éviter","La présence d’un acide gras insaturé ne suffit pas à reconnaître un phospholipide. Il faut regarder l’ensemble : glycérol + 2 acides gras + phosphate.")}`},
+ {id:"bicouche",t:"La double couche de la membrane",h:`
+  <p>Il y a de l’eau à l’intérieur et à l’extérieur de la cellule. Les têtes se tournent vers l’eau des deux côtés ; les queues se font face au centre, à l’abri de l’eau. Les deux couches sont orientées en sens opposés.</p>
+  ${fig("bilayer","La membrane cytoplasmique.",null,true)}
+  ${callout("write","Phrase à écrire à l’évaluation","<q>Les phospholipides forment une double couche : leurs têtes hydrophiles sont au contact de l’eau, tandis que leurs queues hydrophobes se font face au centre de la membrane.</q>")}`},
+ {id:"ster",t:"Les stéroïdes",h:`
+  <p>Structure caractéristique : <b>quatre cycles de carbone reliés</b> entre eux. Les groupes ajoutés varient selon le stéroïde.</p>
+  ${fig("steroid","Squelette commun : trois cycles à 6 côtés et un cycle à 5 côtés.")}
+  <ul><li><b>Cholestérol</b> : structure des membranes des cellules animales ; sert à fabriquer certaines hormones stéroïdes.</li>
+  <li><b>Œstrogènes</b> et <b>testostérone</b> : hormones sexuelles.</li></ul>
+  ${callout("write","Pour justifier","<q>Je reconnais un stéroïde car il possède quatre cycles de carbone reliés entre eux.</q> L’absence de glycérol ne suffit pas à elle seule.")}`},
+ {id:"recap",t:"Reconnaître les trois catégories en un regard",h:`
+  <div class="tbl-wrap"><table><tr><th>Catégorie</th><th>Structure à reconnaître</th><th>Rôle ou exemples</th></tr>
+  <tr><td><b>Triglycéride</b></td><td>Glycérol + 3 acides gras</td><td>Réserve d’énergie ; graisses et huiles</td></tr>
+  <tr><td><b>Phospholipide</b></td><td>Glycérol + 2 acides gras + phosphate</td><td>Double couche de la membrane cytoplasmique</td></tr>
+  <tr><td><b>Stéroïde</b></td><td>4 cycles de carbone reliés</td><td>Cholestérol ; hormones sexuelles</td></tr></table></div>`}
+],
+pro:()=>[
+ {id:"def",t:"Définition",h:`
+  <p>Les protéines sont de grandes molécules organiques constituées d’une ou plusieurs <b>chaînes d’acides aminés</b>.</p>
+  <ul><li><b>Monomère</b> : l’acide aminé.</li><li><b>Polymère</b> : la chaîne polypeptidique.</li><li>Il existe <b>20 acides aminés</b> standards.</li></ul>`},
+ {id:"aa",t:"Reconnaître un acide aminé",h:`
+  ${fig("aa")}
+  <p>Un carbone central lié à un <b>groupe amine (NH₂)</b>, un <b>groupe carboxyle (COOH)</b>, un <b>hydrogène (H)</b> et un <b>radical variable (R)</b>. Le radical R distingue les 20 acides aminés.</p>
+  ${callout("key","Méthode","Cherche le groupe amine et le groupe carboxyle reliés au même carbone central.")}`},
+ {id:"prot",t:"Reconnaître une protéine",h:`
+  ${fig("peptide")}
+  <p>Les acides aminés s’assemblent grâce à des <b>liaisons peptidiques</b> pour former des chaînes polypeptidiques. Une protéine contient une ou plusieurs chaînes, repliées en une forme 3D qui contribue à déterminer sa <b>fonction</b>.</p>`},
+ {id:"types",t:"Les trois types à savoir expliquer",h:`
+  <div class="tbl-wrap"><table><tr><th>Type</th><th>Rôle</th><th>Exemple</th></tr>
+  <tr><td><b>Structure</b></td><td>Assurent la solidité et la résistance de certains tissus</td><td>Collagène (peau, tendons)</td></tr>
+  <tr><td><b>Transport</b></td><td>Transportent des molécules dans l’organisme</td><td>Hémoglobine (transporte le dioxygène dans le sang)</td></tr>
+  <tr><td><b>Défense</b></td><td>Participent à la protection contre les agents pathogènes</td><td>Anticorps (se fixent à des antigènes)</td></tr></table></div>`},
+ {id:"autres",t:"Autres types présents dans le cours",h:`
+  <div class="tbl-wrap"><table><tr><th>Type</th><th>Rôle</th><th>Exemple</th></tr>
+  <tr><td><b>Enzymes</b></td><td>Accélèrent les réactions chimiques</td><td>Amylase</td></tr>
+  <tr><td><b>Contractiles</b></td><td>Permettent le mouvement</td><td>Actine et myosine</td></tr>
+  <tr><td><b>Hormones protéiques</b></td><td>Transmettent des messages chimiques (régulation)</td><td>Insuline</td></tr>
+  <tr><td><b>Récepteurs</b></td><td>Reçoivent des signaux</td><td>Récepteurs membranaires</td></tr>
+  <tr><td><b>Neurotransmetteurs</b></td><td>Transmettent des messages nerveux</td><td>Certains neuropeptides</td></tr></table></div>
+  ${callout("trap","Attention","Toutes les hormones et tous les neurotransmetteurs ne sont pas des protéines. La testostérone, par exemple, est un stéroïde.")}`}
+],
+adn:()=>[
+ {id:"def",t:"Définition",h:`
+  <p><b>ADN</b> = acide désoxyribonucléique. Molécule qui contient l’<b>information génétique</b> d’un organisme. Dans les cellules humaines, la majeure partie de l’ADN se trouve dans le <b>noyau</b>, organisé en chromosomes.</p>`},
+ {id:"struct",t:"Structure : le nucléotide",h:`
+  <p>Deux <b>brins complémentaires</b> enroulés en <b>double hélice</b>. Chaque brin est une succession de <b>nucléotides</b>.</p>
+  ${fig("nuc","Nucléotide = phosphate + sucre (désoxyribose) + base azotée (A, T, G ou C).")}`},
+ {id:"bases",t:"Les bases et la complémentarité",h:`
+  <div class="tbl-wrap"><table><tr><th>Lettre</th><th>Nom</th><th>Base complémentaire</th></tr>
+  <tr><td class="mono">A</td><td>Adénine</td><td class="mono">T</td></tr><tr><td class="mono">T</td><td>Thymine</td><td class="mono">A</td></tr>
+  <tr><td class="mono">G</td><td>Guanine</td><td class="mono">C</td></tr><tr><td class="mono">C</td><td>Cytosine</td><td class="mono">G</td></tr></table></div>
+  ${callout("key","Règle fondamentale","A s’associe avec T ; G s’associe avec C.")}
+  <div class="live"><label for="comp-live" class="small"><b>Essaie :</b> tape un brin (A, T, G, C) pour voir son brin complémentaire.</label>
+  <input id="comp-live" value="ATGCCA" maxlength="12" autocomplete="off" spellcheck="false">
+  <div id="comp-out"></div></div>`},
+ {id:"dessin",t:"Savoir dessiner l’ADN",h:`
+  ${fig("dna",null,{top:"AGT",legend:true})}
+  <ul><li>Chaque côté alterne <b>sucres et phosphates</b> : c’est le squelette sucre-phosphate (les montants de l’échelle).</li>
+  <li>Les <b>bases</b> sont liées aux sucres et s’associent au centre : A–T et G–C (les échelons).</li>
+  <li>Dans la réalité, cette échelle est enroulée en double hélice.</li></ul>`},
+ {id:"gene",t:"Triplet et gène",h:`
+  ${fig("dna","Une séquence de 6 bases = 2 triplets.",{top:"ATGCCA",tri:true},true)}
+  <ul><li><b>Triplet</b> : succession de trois nucléotides (trois bases) sur un brin d’ADN.</li>
+  <li><b>Gène</b> : portion d’ADN portant une information génétique. Pour un gène qui détermine une protéine, l’ordre des bases détermine l’ordre des acides aminés.</li></ul>
+  ${callout("key","Du plus petit au plus grand","nucléotide → triplet → gène → chromosome")}`},
+ {id:"chromo",t:"ADN et chromosomes",h:`
+  ${fig("chromo")}
+  <ul><li>La plupart des cellules humaines ont <b>46 chromosomes</b>, soit <b>23 paires</b>.</li>
+  <li><b>22 paires d’autosomes</b> ; la 23<sup>e</sup> paire = chromosomes sexuels (généralement XX ou XY).</li>
+  <li>Dans chaque paire, un chromosome vient de la <b>mère</b> et l’autre du <b>père</b>.</li>
+  <li>Avant une division, l’ADN est dupliqué : un chromosome dupliqué comporte <b>deux chromatides sœurs</b> (en X). Il compte toujours comme <b>un seul chromosome</b>.</li></ul>`}
+]};
+const SECS=Object.fromEntries(CH.map(c=>[c.id,COURSE[c.id]().map(s=>s.id)]));
+
+/* ================= BANQUE DE QUESTIONS ================= */
+// qcm : la première réponse est la bonne (mélangée à l’affichage)
+const BANK=[];
+function Q(ch,q,c,exp,extra){BANK.push(Object.assign({id:ch+":q"+BANK.filter(b=>b.ch===ch).length,ch,t:"qcm",q,c,exp},extra||{}))}
+function VF(ch,q,a,exp){BANK.push({id:ch+":q"+BANK.filter(b=>b.ch===ch).length,ch,t:"vf",q,a,exp})}
+const POOL=["Triglycéride","Phospholipide","Stéroïde","Acide aminé","Chaîne polypeptidique","Nucléotide","ADN (double brin)","Molécule d’eau","Monosaccharide","Disaccharide","Polysaccharide"];
+function ID(ch,svgk,a,exp,o){BANK.push({id:"id:"+svgk,ch,t:"id",q:"Quelle molécule est représentée ?",svg:svgk,svgo:o,a,exp})}
+
+// EAU
+Q("eau","Quel élément chimique est le plus abondant dans la matière vivante ?",["L’oxygène","Le carbone","L’hydrogène","L’azote"],"L’oxygène arrive en tête, surtout à cause de la grande quantité d’eau (H₂O) dans l’organisme.");
+Q("eau","Les trois principaux atomes de la matière vivante sont…",["O, C et H","Na, K et Cl","C, N et Fe","O, N et Ca"],"Oxygène, carbone et hydrogène.");
+Q("eau","La molécule d’eau est polaire parce que…",["l’oxygène porte une charge partielle négative et les hydrogènes une charge partielle positive","elle porte une charge globale négative","elle contient un ion sodium","elle contient deux atomes d’oxygène"],"Charges partielles δ− sur O et δ+ sur H ; la molécule reste neutre.");
+VF("eau","La molécule d’eau, dans son ensemble, porte une charge négative.",false,"Elle reste neutre : il n’y a que des charges partielles δ− (O) et δ+ (H).");
+Q("eau","Un pont hydrogène est une attraction entre…",["l’hydrogène d’une molécule d’eau et l’oxygène d’une autre","l’oxygène et les hydrogènes d’une même molécule","deux atomes d’oxygène","deux hydrogènes de molécules différentes"],"Le pont H relie deux molécules différentes : H (δ+) de l’une, O (δ−) de l’autre.");
+VF("eau","Un pont hydrogène est plus fort qu’une liaison covalente O–H.",false,"C’est l’inverse : le pont H est plus faible que la liaison covalente O–H à l’intérieur de la molécule.");
+VF("eau","Dans l’eau liquide, les ponts hydrogène se forment et se rompent continuellement.",true,"C’est ce qui rend l’eau liquide et fluide.");
+Q("eau","Pourquoi la glace flotte-t-elle sur l’eau liquide ?",["Les ponts H forment un réseau ouvert : la glace est moins dense","La glace contient des bulles d’air","La glace est plus dense que l’eau","La glace n’a plus de ponts hydrogène"],"Réseau ouvert → plus de volume à masse égale → densité plus faible.");
+Q("eau","L’eau contenue à l’intérieur des cellules forme le compartiment…",["intracellulaire","extracellulaire","interstitiel","plasmatique"],"Intra = à l’intérieur.");
+Q("eau","Lequel de ces liquides ne fait PAS partie du compartiment extracellulaire ?",["Le liquide à l’intérieur des cellules","Le plasma sanguin","La lymphe","Le liquide interstitiel"],"Extracellulaire = liquide interstitiel + plasma + lymphe.");
+Q("eau","La transpiration refroidit le corps parce que…",["l’évaporation de l’eau consomme de l’énergie","la sueur est froide","l’eau est un solvant","la sueur contient du sel"],"En s’évaporant, l’eau absorbe de l’énergie (chaleur) prise à la peau.");
+Q("eau","Quelle substance l’eau dissout-elle mal ?",["L’huile","Le sel","Le sucre","Le glucose"],"L’huile est non polaire ; l’eau dissout les substances ioniques ou polaires.");
+Q("eau","La capacité de l’eau à monter dans des tubes très fins s’appelle…",["la capillarité","la tension superficielle","l’évaporation","la densité"],"Capillarité = adhésion + cohésion.");
+Q("eau","La tension superficielle de l’eau s’explique surtout par…",["la cohésion des molécules grâce aux ponts H","la présence de sel","sa charge négative","la pression de l’air"],"Les molécules s’attirent entre elles (cohésion).");
+VF("eau","Une couche de glace en surface peut permettre la survie d’organismes aquatiques.",true,"La glace isole l’eau située dessous.");
+VF("eau","L’eau est un solvant parce qu’elle dissout de nombreuses substances ioniques ou polaires.",true,"Comme le sel et le sucre.");
+ID("eau","water","Molécule d’eau","Un O relié à deux H : H₂O. Ici, deux molécules liées par un pont H.");
+// GLUCIDES
+Q("glu","Quelle est la formule brute du glucose ?",["C₆H₁₂O₆","C₆H₆O₁₂","C₁₂H₂₂O₁₁","CH₄"],"C₆H₁₂O₆ : 6 carbones, 12 hydrogènes, 6 oxygènes.");
+Q("glu","Les glucides sont constitués de…",["C, H et O","C, H, O et N","C, H, N et P","C, O et S"],"Carbone, hydrogène, oxygène.");
+Q("glu","Quel est le rôle principal des glucides ?",["Fournir de l’énergie (directe ou en réserve)","Porter l’information génétique","Former la double couche des membranes","Défendre contre les pathogènes"],"Rôle énergétique.");
+Q("glu","Lequel est un monosaccharide ?",["Le fructose","L’amidon","Le saccharose","Le glycogène"],"Monosaccharides : glucose, fructose, galactose.");
+Q("glu","Lequel est un disaccharide ?",["Le lactose","Le glucose","La cellulose","Le galactose"],"Disaccharides : saccharose, lactose.");
+Q("glu","Quelle est la réserve de glucose chez les animaux ?",["Le glycogène","L’amidon","La cellulose","Le fructose"],"Glycogène = animaux ; amidon = végétaux.");
+Q("glu","Quelle est la réserve de glucose chez les végétaux ?",["L’amidon","Le glycogène","Le lactose","La cellulose"],"L’amidon, par exemple dans la pomme de terre.");
+Q("glu","La cellulose sert à…",["constituer la paroi des cellules végétales","stocker le glucose chez les animaux","transporter le dioxygène","fabriquer des hormones"],"La cellulose est un polysaccharide de structure.");
+Q("glu","Complète : C₆H₁₂O₆ + 6 O₂ → …",["6 CO₂ + 6 H₂O + énergie","6 O₂ + énergie","C₆H₁₂O₆ + H₂O","12 CO₂ + énergie"],"C’est la respiration cellulaire.");
+Q("glu","Un monomère est…",["une petite molécule qui s’assemble avec d’autres pour former un polymère","une grande molécule faite d’unités répétées","toujours un glucide","une protéine"],"Le polymère, lui, est la grande molécule.");
+Q("glu","Dans l’amidon, le glucose est…",["le monomère","le polymère","une enzyme","un disaccharide"],"L’amidon est le polymère, le glucose son unité.");
+VF("glu","Tous les polymères sont des polysaccharides.",false,"Une protéine est un polymère, mais ce n’est pas un glucide.");
+VF("glu","Tous les polysaccharides sont des polymères.",true,"Ils sont faits d’un grand nombre de monosaccharides.");
+Q("glu","Un polysaccharide est formé…",["d’un grand nombre de monosaccharides reliés","de deux monosaccharides","d’un seul sucre","d’acides aminés"],"Poly = beaucoup.");
+ID("glu","mono","Monosaccharide","Une seule unité de sucre.");
+ID("glu","di","Disaccharide","Deux unités de sucre liées.");
+ID("glu","poly","Polysaccharide","Une longue chaîne d’unités de sucre.");
+// LIPIDES
+Q("lip","Un triglycéride est formé de…",["1 glycérol + 3 acides gras","1 glycérol + 2 acides gras + 1 phosphate","4 cycles de carbone","3 glycérols + 1 acide gras"],"« Tri » = trois queues.");
+Q("lip","Quel est le rôle des triglycérides ?",["Réserve d’énergie","Double couche de la membrane","Hormones sexuelles","Information génétique"],"Graisses animales et huiles végétales.");
+Q("lip","Un acide gras saturé possède…",["uniquement des liaisons simples C–C","au moins une double liaison C=C","uniquement des doubles liaisons","quatre cycles"],"Saturé = « rempli » d’hydrogènes, liaisons simples.");
+Q("lip","Un acide gras insaturé possède…",["au moins une double liaison C=C","uniquement des doubles liaisons","uniquement des liaisons simples","un groupement phosphate"],"Les autres liaisons peuvent être simples.");
+VF("lip","Dans un acide gras insaturé, toutes les liaisons entre carbones sont doubles.",false,"Au moins une double liaison suffit ; les autres peuvent être simples.");
+Q("lip","Un acide gras qui possède plusieurs doubles liaisons est…",["polyinsaturé","mono-insaturé","saturé","un stéroïde"],"Mono = une ; poly = plusieurs.");
+Q("lip","À température ambiante, les graisses riches en acides gras saturés sont plutôt…",["solides","liquides","gazeuses","dissoutes dans l’eau"],"Ex. : beurre, graisses animales. Les huiles (insaturées) sont liquides.");
+Q("lip","Dans l’écriture en zigzag d’un acide gras, chaque sommet représente…",["un atome de carbone","un atome d’hydrogène","un atome d’oxygène","une double liaison"],"Les hydrogènes ne sont pas dessinés.");
+VF("lip","Un triglycéride a toujours deux acides gras saturés et un insaturé.",false,"Toutes les combinaisons sont possibles.");
+Q("lip","Un phospholipide est formé de…",["1 glycérol + 2 acides gras + 1 phosphate","1 glycérol + 3 acides gras","4 cycles de carbone","2 glycérols + 1 phosphate"],"Une tête (glycérol + phosphate) et deux queues.");
+Q("lip","La tête d’un phospholipide est…",["hydrophile","hydrophobe","non polaire","formée d’acides gras"],"Hydrophile = aime l’eau.");
+Q("lip","Dans la membrane, les queues des phospholipides sont…",["au centre, face à face, à l’abri de l’eau","tournées vers l’eau extérieure","tournées vers le cytoplasme","collées au noyau"],"Les queues hydrophobes fuient l’eau.");
+Q("lip","Pourquoi les phospholipides forment-ils une double couche ?",["Il y a de l’eau des deux côtés de la membrane","Pour stocker de l’énergie","Parce que les queues sont hydrophiles","Parce qu’ils ont quatre cycles"],"Les têtes se tournent vers l’eau à l’intérieur et à l’extérieur.");
+VF("lip","La présence d’un acide gras insaturé suffit pour reconnaître un phospholipide.",false,"Il faut regarder toute la structure : glycérol + 2 AG + phosphate.");
+Q("lip","On reconnaît un stéroïde à…",["ses 4 cycles de carbone reliés","son glycérol et ses 3 acides gras","son groupement phosphate","son groupe amine"],"Quatre cycles accolés.");
+Q("lip","Lequel n’est PAS un stéroïde ?",["Un triglycéride","Le cholestérol","La testostérone","Les œstrogènes"],"Le triglycéride est glycérol + 3 AG.");
+Q("lip","Les œstrogènes et la testostérone sont…",["des hormones sexuelles stéroïdes","des protéines","des triglycérides","des enzymes"],"Ce sont des stéroïdes.");
+Q("lip","Quel est le rôle du cholestérol ?",["Structure des membranes animales et fabrication d’hormones stéroïdes","Principale réserve d’énergie","Transport du dioxygène","Information génétique"],"Il est dans les membranes des cellules animales.");
+VF("lip","L’absence de glycérol suffit à affirmer qu’une molécule est un stéroïde.",false,"Il faut voir les 4 cycles de carbone reliés.");
+ID("lip","tg","Triglycéride","Glycérol + trois acides gras.");
+ID("lip","pl","Phospholipide","Une tête (glycérol + phosphate) et deux queues.");
+ID("lip","steroid","Stéroïde","Quatre cycles de carbone reliés.");
+// PROTIDES
+Q("pro","Quelles sont les unités de base (monomères) des protéines ?",["Les acides aminés","Les nucléotides","Les monosaccharides","Les acides gras"],"Le polymère est la chaîne polypeptidique.");
+Q("pro","Combien existe-t-il d’acides aminés standards ?",["20","4","46","64"],"20 acides aminés, différenciés par leur radical R.");
+Q("pro","Le carbone central d’un acide aminé est lié à…",["NH₂, COOH, H et R","P, S et une base","un glycérol et 3 acides gras","4 cycles de carbone"],"Groupe amine, groupe carboxyle, hydrogène, radical.");
+Q("pro","Qu’est-ce qui différencie les 20 acides aminés ?",["Le radical R","Le groupe amine","Le groupe carboxyle","L’atome d’hydrogène"],"R est variable, le reste est commun.");
+Q("pro","Le groupe –NH₂ s’appelle…",["le groupe amine","le groupe carboxyle","le groupe phosphate","le radical"],"Amine = azote (N).");
+Q("pro","Le groupe –COOH s’appelle…",["le groupe carboxyle (acide carboxylique)","le groupe amine","le radical variable","le désoxyribose"],"C’est la partie « acide » de l’acide aminé.");
+Q("pro","Les acides aminés s’assemblent grâce à des…",["liaisons peptidiques","ponts hydrogène A–T","liaisons phosphate","doubles liaisons C=C"],"Ils forment une chaîne polypeptidique.");
+Q("pro","Quelle protéine de structure se trouve dans la peau et les tendons ?",["Le collagène","L’hémoglobine","Les anticorps","L’amylase"],"Protéine de structure : solidité des tissus.");
+Q("pro","L’hémoglobine est une protéine de…",["transport","défense","structure","contraction"],"Elle transporte le dioxygène dans le sang.");
+Q("pro","Les anticorps sont des protéines de…",["défense","transport","structure","réserve"],"Ils reconnaissent et se fixent aux antigènes.");
+Q("pro","L’amylase est…",["une enzyme","une hormone","un anticorps","un récepteur"],"Les enzymes accélèrent les réactions chimiques.");
+Q("pro","L’actine et la myosine sont des protéines…",["contractiles","de transport","de défense","enzymatiques"],"Elles permettent le mouvement.");
+Q("pro","L’insuline est…",["une hormone protéique","une enzyme","un stéroïde","un glucide"],"Elle transmet un message chimique.");
+VF("pro","Toutes les hormones sont des protéines.",false,"La testostérone et les œstrogènes sont des stéroïdes.");
+VF("pro","La forme 3D d’une protéine contribue à déterminer sa fonction.",true,"La chaîne se replie en une forme précise.");
+Q("pro","Comment appelle-t-on le polymère formé d’acides aminés ?",["Une chaîne polypeptidique","L’amidon","Un nucléotide","Un triglycéride"],"Une protéine = une ou plusieurs chaînes polypeptidiques.");
+ID("pro","aa","Acide aminé","Carbone central + NH₂ + COOH + H + R.");
+ID("pro","peptide","Chaîne polypeptidique","Des acides aminés reliés par des liaisons peptidiques, puis repliés.");
+// ADN
+Q("adn","ADN signifie…",["acide désoxyribonucléique","acide diribonucléique","acide désoxyribose-azoté","acide double nucléaire"],"Le sucre est le désoxyribose.");
+Q("adn","Où se trouve la majeure partie de l’ADN dans une cellule humaine ?",["Dans le noyau","Dans la membrane","Dans la paroi","Dans le sang"],"Organisé en chromosomes.");
+Q("adn","Un nucléotide est formé…",["d’un phosphate, d’un désoxyribose et d’une base azotée","d’un glycérol et de 3 acides gras","d’un groupe amine et d’un carboxyle","de trois bases"],"P + S + base.");
+Q("adn","Le sucre de l’ADN s’appelle…",["le désoxyribose","le glucose","le fructose","le saccharose"],"D’où le nom désoxyribonucléique.");
+Q("adn","L’adénine (A) s’associe avec…",["la thymine (T)","la cytosine (C)","la guanine (G)","l’adénine (A)"],"A–T.");
+Q("adn","La guanine (G) s’associe avec…",["la cytosine (C)","la thymine (T)","l’adénine (A)","la guanine (G)"],"G–C.");
+Q("adn","Quel est le brin complémentaire de ATG CCA ?",["TAC GGT","ATG CCA","GCA TTG","TAC CCA"],"A→T, T→A, G→C, C→G.");
+Q("adn","Quel est le brin complémentaire de GGA TTC ?",["CCT AAG","GGA TTC","CCA TTG","AAG CCT"],"G→C, G→C, A→T, T→A, T→A, C→G.");
+Q("adn","Un triplet est…",["une succession de 3 nucléotides (3 bases) sur un brin","un groupe de 3 chromosomes","3 gènes à la suite","3 brins d’ADN"],"Trois bases à la suite.");
+Q("adn","Un gène est…",["une portion d’ADN portant une information génétique","un chromosome entier","une protéine","une base azotée"],"L’ordre des bases détermine l’ordre des acides aminés.");
+Q("adn","Les montants de l’échelle d’ADN sont formés…",["d’une alternance sucre–phosphate","de bases azotées","d’acides aminés","de glucose"],"C’est le squelette sucre-phosphate.");
+Q("adn","Combien de chromosomes ont la plupart des cellules humaines ?",["46 (23 paires)","23","44","92"],"23 paires.");
+Q("adn","Combien y a-t-il de paires d’autosomes ?",["22","23","46","1"],"La 23e paire = chromosomes sexuels.");
+Q("adn","La 23e paire de chromosomes correspond…",["aux chromosomes sexuels (XX ou XY)","aux autosomes","aux chromatides sœurs","aux gènes de l’hémoglobine"],"Généralement XX ou XY.");
+VF("adn","Un chromosome dupliqué (en forme de X) compte comme deux chromosomes.",false,"Deux chromatides sœurs, mais un seul chromosome.");
+VF("adn","Dans chaque paire, un chromosome vient de la mère et l’autre du père.",true,"Origine maternelle et paternelle.");
+Q("adn","Un chromosome dupliqué comporte…",["2 chromatides sœurs","4 chromatides","2 paires de chromosomes","1 seule chromatide"],"Elles sont unies au centromère.");
+Q("adn","Quel ordre va du plus petit au plus grand ?",["nucléotide → triplet → gène → chromosome","gène → nucléotide → triplet → chromosome","triplet → nucléotide → chromosome → gène","chromosome → gène → triplet → nucléotide"],"Un triplet = 3 nucléotides ; un gène = beaucoup de triplets ; un chromosome = beaucoup de gènes.");
+Q("adn","Combien de triplets y a-t-il dans une séquence de 12 bases ?",["4","3","12","36"],"12 ÷ 3 = 4.");
+ID("adn","nuc","Nucléotide","Phosphate + sucre + base.");
+ID("adn","dna","ADN (double brin)","Deux brins complémentaires reliés par leurs bases.",{top:"GAT"});
+
+/* ================= FLASHCARDS ================= */
+const FLASH=[
+["eau","Polarité de l’eau","O porte δ−, les H portent δ+ ; la molécule reste neutre."],
+["eau","Pont hydrogène","Attraction entre l’H d’une molécule d’eau et l’O d’une autre. Plus faible qu’une liaison O–H."],
+["eau","Compartiment extracellulaire","Liquide interstitiel + plasma sanguin + lymphe."],
+["eau","Compartiment intracellulaire","L’eau contenue à l’intérieur des cellules."],
+["eau","Pourquoi la glace flotte","Réseau ouvert de ponts H → plus de volume → moins dense que l’eau liquide."],
+["eau","Capillarité","L’eau monte dans des tubes très fins grâce à l’adhésion et à la cohésion."],
+["eau","Pouvoir solvant","L’eau dissout les substances ioniques ou polaires (sel, sucre), pas les non polaires (huile)."],
+["glu","Formule du glucose","C₆H₁₂O₆"],
+["glu","Respiration cellulaire","C₆H₁₂O₆ + 6 O₂ → 6 CO₂ + 6 H₂O + énergie"],
+["glu","Monosaccharide","Sucre simple, 1 seule unité. Ex. : glucose, fructose, galactose."],
+["glu","Disaccharide","Sucre double, 2 unités. Ex. : saccharose, lactose."],
+["glu","Polysaccharide","Grand nombre de monosaccharides reliés. Ex. : amidon, glycogène, cellulose."],
+["glu","Amidon / Glycogène","Réserve de glucose : amidon chez les végétaux, glycogène chez les animaux."],
+["glu","Monomère","Petite molécule qui s’assemble avec d’autres pour former un polymère."],
+["glu","Polymère","Grande molécule faite d’un grand nombre de monomères répétés."],
+["lip","Triglycéride","Glycérol + 3 acides gras. Rôle : réserve d’énergie."],
+["lip","Phospholipide","Glycérol + 2 acides gras + phosphate. Rôle : double couche de la membrane."],
+["lip","Stéroïde","4 cycles de carbone reliés. Ex. : cholestérol, œstrogènes, testostérone."],
+["lip","Acide gras saturé","Uniquement des liaisons simples C–C. Solide à température ambiante."],
+["lip","Acide gras insaturé","Au moins une double liaison C=C. Liquide à température ambiante (huiles)."],
+["lip","Hydrophile / hydrophobe","Hydrophile : interagit avec l’eau (tête). Hydrophobe : fuit l’eau (queues)."],
+["pro","Acide aminé","Carbone central + NH₂ (amine) + COOH (carboxyle) + H + radical R."],
+["pro","Radical R","Partie variable qui différencie les 20 acides aminés."],
+["pro","Liaison peptidique","Liaison qui unit les acides aminés en chaîne polypeptidique."],
+["pro","Protéine de structure","Solidité des tissus. Ex. : collagène (peau, tendons)."],
+["pro","Protéine de transport","Transporte des molécules. Ex. : hémoglobine (O₂ dans le sang)."],
+["pro","Protéine de défense","Protection contre les pathogènes. Ex. : anticorps."],
+["pro","Enzyme","Accélère les réactions chimiques. Ex. : amylase."],
+["adn","Nucléotide","Phosphate + désoxyribose + base azotée (A, T, G ou C)."],
+["adn","Complémentarité","A ↔ T et G ↔ C."],
+["adn","Triplet","Succession de 3 nucléotides (3 bases) sur un brin."],
+["adn","Gène","Portion d’ADN portant une information génétique."],
+["adn","Caryotype humain","46 chromosomes = 23 paires : 22 paires d’autosomes + 1 paire sexuelle."],
+["adn","Chromosome dupliqué","2 chromatides sœurs (en X) = toujours 1 seul chromosome."],
+["adn","Squelette de l’ADN","Alternance sucre (désoxyribose) – phosphate sur chaque brin."]
+].map((f,i)=>({id:"f:"+f[0]+i,ch:f[0],front:f[1],back:f[2]}));
+
+/* ================= QUESTIONS OUVERTES ================= */
+const OPEN=[
+{ch:"lip",q:"Explique pourquoi les phospholipides forment une double couche dans la membrane.",m:"Il y a de l’eau des deux côtés de la membrane. Les phospholipides forment une double couche : leurs têtes hydrophiles sont au contact de l’eau, tandis que leurs queues hydrophobes se font face au centre de la membrane.",k:[["double couche","bicouche"],["tete","tetes"],["hydrophile"],["hydrophobe"],["eau"],["centre","face"]]},
+{ch:"lip",q:"Comment justifier qu’une molécule est un stéroïde ?",m:"Je reconnais un stéroïde car il possède quatre cycles de carbone reliés entre eux. (L’absence de glycérol ne suffit pas.)",k:[["quatre","4"],["cycle"],["carbone"],["relie","accole"]]},
+{ch:"lip",q:"Explique la différence entre un acide gras saturé et un acide gras insaturé.",m:"Un acide gras saturé ne possède que des liaisons simples entre ses carbones. Un insaturé possède au moins une double liaison C=C ; les autres liaisons peuvent être simples.",k:[["simple"],["double"],["au moins une","au moins 1"],["carbone","c=c","c-c"]]},
+{ch:"lip",q:"Compare la structure d’un triglycéride et d’un phospholipide.",m:"Les deux ont un glycérol. Le triglycéride porte trois acides gras (réserve d’énergie). Le phospholipide porte deux acides gras et un groupement phosphate (double couche de la membrane).",k:[["glycerol"],["trois","3"],["deux","2"],["phosphate"]]},
+{ch:"glu",q:"Explique la différence entre un monosaccharide et un polysaccharide (avec exemples).",m:"Un monosaccharide est un glucide simple formé d’une seule unité de sucre (ex. : glucose). Un polysaccharide est un glucide complexe formé d’un grand nombre de monosaccharides reliés (ex. : amidon, glycogène, cellulose).",k:[["une seule","1 seule","simple"],["grand nombre","plusieurs","complexe"],["glucose","fructose","galactose"],["amidon","glycogene","cellulose"]]},
+{ch:"glu",q:"Définis monomère et polymère, avec un exemple.",m:"Un monomère est une petite molécule capable de s’assembler avec d’autres pour former un polymère. Un polymère est une grande molécule faite d’un grand nombre de monomères. Ex. : le glucose (monomère) forme l’amidon (polymère).",k:[["petite"],["grande"],["assembl","repet"],["glucose"],["amidon","glycogene","proteine"]]},
+{ch:"pro",q:"Comment reconnaître un acide aminé sur un schéma ?",m:"On cherche un carbone central lié à un groupe amine (NH₂), un groupe carboxyle (COOH), un hydrogène et un radical variable R.",k:[["carbone central","carbone"],["amine","nh2"],["carboxyl","cooh"],["radical","r "]]},
+{ch:"pro",q:"Explique trois types de protéines avec leur rôle et un exemple.",m:"Protéines de structure : solidité des tissus (collagène). Protéines de transport : transportent des molécules (hémoglobine transporte le dioxygène). Protéines de défense : protègent contre les pathogènes (anticorps).",k:[["structure"],["collagene"],["transport"],["hemoglobine"],["defense"],["anticorps"]]},
+{ch:"adn",q:"Explique la différence entre nucléotide, triplet et gène.",m:"Un nucléotide est l’unité de l’ADN (phosphate + désoxyribose + base). Un triplet est une suite de trois nucléotides sur un brin. Un gène est une portion d’ADN qui porte une information génétique ; il contient de nombreux triplets.",k:[["phosphate"],["desoxyribose","sucre"],["base"],["trois","3"],["portion"],["information"]]},
+{ch:"adn",q:"Décris la structure de l’ADN.",m:"L’ADN est formé de deux brins complémentaires enroulés en double hélice. Chaque brin est une suite de nucléotides ; les montants alternent sucre (désoxyribose) et phosphate, et les bases s’associent au centre : A avec T, G avec C.",k:[["deux brins","2 brins"],["double helice","helice"],["nucleotide"],["phosphate"],["a-t","a avec t","a et t","adenine"],["g-c","g avec c","g et c","guanine"]]},
+{ch:"eau",q:"Explique pourquoi la glace flotte sur l’eau.",m:"Dans la glace, les ponts hydrogène organisent les molécules en un réseau ouvert. À masse égale, la glace occupe plus de volume : elle est moins dense que l’eau liquide et flotte.",k:[["pont"],["reseau"],["volume"],["dense","densite"]]},
+{ch:"eau",q:"Distingue un pont hydrogène d’une liaison covalente O–H.",m:"La liaison covalente O–H relie les atomes à l’intérieur d’une molécule d’eau et elle est forte. Le pont hydrogène est une attraction plus faible entre l’hydrogène d’une molécule et l’oxygène d’une autre molécule.",k:[["interieur","meme molecule"],["autre molecule","deux molecules","entre"],["faible"],["forte"]]},
+{ch:"eau",q:"Pourquoi la transpiration refroidit-elle le corps ?",m:"L’évaporation de l’eau consomme de l’énergie. En s’évaporant, la sueur prend de la chaleur à la peau, ce qui refroidit le corps.",k:[["evapor"],["energie","chaleur"]]}
+].map((o,i)=>Object.assign(o,{id:"o:"+o.ch+i}));
+
+/* ================= EXERCICES ================= */
+const LAB={
+ aa:{ch:"pro",t:"Acide aminé",svg:"aa",pins:["amine","carb","h","r","c"],names:{amine:"Groupe amine (NH₂)",carb:"Groupe carboxyle (COOH)",h:"Hydrogène",r:"Radical variable R",c:"Carbone central"}},
+ adn:{ch:"adn",t:"ADN",svg:"dna",o:{top:"AGT"},pins:["S","P","B","pair"],names:{S:"Désoxyribose (sucre)",P:"Phosphate",B:"Base azotée",pair:"Appariement de deux bases"}},
+ pl:{ch:"lip",t:"Phospholipide",svg:"pl",pins:["tete","queue","phos","gly"],names:{tete:"Tête hydrophile",queue:"Queues hydrophobes (acides gras)",phos:"Groupement phosphate",gly:"Glycérol"}},
+ eau:{ch:"eau",t:"Molécules d’eau",svg:"water",pins:["dm","dp","hb","cov"],names:{dm:"Charge partielle négative δ−",dp:"Charge partielle positive δ+",hb:"Pont hydrogène",cov:"Liaison covalente O–H"}},
+ chr:{ch:"adn",t:"Chromosome",svg:"chromo",pins:["s1","cs","cen","d1"],names:{s1:"Chromosome non dupliqué",cs:"Chromatide sœur",cen:"Centromère",d1:"Chromosome dupliqué"}}
+};
+const CLS={
+ glu:{ch:"glu",t:"Les glucides",bins:["Monosaccharide","Disaccharide","Polysaccharide"],items:[["Glucose",0],["Fructose",0],["Galactose",0],["Saccharose",1],["Lactose",1],["Amidon",2],["Glycogène",2],["Cellulose",2]]},
+ pro:{ch:"pro",t:"Les protéines",bins:["Structure","Transport","Défense","Enzyme","Contractile","Hormone"],items:[["Collagène",0],["Hémoglobine",1],["Anticorps",2],["Amylase",3],["Actine",4],["Myosine",4],["Insuline",5]]},
+ lip:{ch:"lip",t:"Les lipides",bins:["Triglycéride","Phospholipide","Stéroïde"],items:[["Glycérol + 3 acides gras",0],["Réserve d’énergie",0],["Huiles et graisses",0],["Glycérol + 2 AG + phosphate",1],["Double couche de la membrane",1],["Tête hydrophile",1],["4 cycles de carbone",2],["Cholestérol",2],["Testostérone",2],["Œstrogènes",2]]},
+ fam:{ch:null,t:"Les familles de molécules",bins:["Glucide","Lipide","Protéine","Acide nucléique"],items:[["Amidon",0],["Glycogène",0],["Fructose",0],["Cholestérol",1],["Triglycéride",1],["Phospholipide",1],["Hémoglobine",2],["Collagène",2],["Anticorps",2],["ADN",3],["Nucléotide",3]]}
+};
+const EXI={eau:["x:lab:eau"],glu:["x:cls:glu"],lip:["x:lab:pl","x:cls:lip"],pro:["x:lab:aa","x:cls:pro"],adn:["x:comp","x:lab:adn","x:lab:chr"]};
+const SKILLS=[
+ ["eau","Expliquer les ponts H et distinguer un pont H d’une liaison O–H"],
+ ["eau","Expliquer pourquoi la glace flotte et citer les propriétés de l’eau"],
+ ["glu","Expliquer la différence entre monosaccharide et polysaccharide"],
+ ["glu","Définir correctement monomère et polymère"],
+ ["lip","Reconnaître chaque catégorie de lipides et justifier avec sa structure"],
+ ["lip","Expliquer saturé et insaturé sans dire que toutes les liaisons sont doubles"],
+ ["lip","Dessiner une bicouche et placer les têtes vers l’eau des deux côtés"],
+ ["lip","Citer les stéroïdes du cours et identifier les hormones sexuelles"],
+ ["pro","Reconnaître et justifier un acide aminé"],
+ ["pro","Reconnaître une protéine"],
+ ["pro","Expliquer trois types de protéines, avec rôle et exemple"],
+ ["adn","Dessiner l’ADN et identifier ses composants"],
+ ["adn","Compléter un brin d’ADN par complémentarité"],
+ ["adn","Expliquer la différence entre nucléotide, triplet et gène"]
+].map((s,i)=>({id:"s"+i,ch:s[0],t:s[1]}));
+
+/* ================= PROGRESSION ================= */
+const KEY="mdv-progress-v1";
+const blank=()=>({v:1,upd:0,items:{},read:{},skills:{},log:[],days:{}});
+let S=blank();
+try{const r=localStorage.getItem(KEY);if(r)S=Object.assign(blank(),JSON.parse(r))}catch(e){}
+let cloudRef=null,cloudBusy=false,cloudAgain=false,saveT=null;
+function save(){
+  S.upd=Date.now();
+  try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}
+  clearTimeout(saveT);saveT=setTimeout(pushCloud,1200);
+  renderSide();
+}
+async function pushCloud(){
+  if(!cloudRef)return;if(cloudBusy){cloudAgain=true;return}
+  cloudBusy=true;try{await cloudRef.set(JSON.parse(JSON.stringify(S)))}catch(e){}
+  cloudBusy=false;if(cloudAgain){cloudAgain=false;pushCloud()}
+}
+async function initCloud(){
+  try{
+    if(!window.claude||!window.claude.use)return;
+    const [user,db]=await Promise.all([window.claude.use("user"),window.claude.use("db")]);
+    if(!user||!db)return;const id=await user.id();if(!id)return;
+    const ref=db.doc("data/users/"+id+"/progress");const snap=await ref.get();
+    cloudRef=ref;
+    if(snap.exists){const d=snap.data()||{};
+      if((d.upd||0)>(S.upd||0)){S=Object.assign(blank(),JSON.parse(JSON.stringify(d)));try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}if(!SESSION)route()}
+      else if((S.upd||0)>(d.upd||0))pushCloud();
+    }else if(S.upd)pushCloud();
+    renderSide();
+  }catch(e){cloudRef=null}
+}
+function record(id,ok){
+  const it=S.items[id]||{b:0,c:0,w:0,t:0};
+  if(ok){it.b=Math.min(4,it.b+1);it.c++}else{it.b=0;it.w++}
+  it.t=Date.now();S.items[id]=it;
+  const d=today();S.days[d]=(S.days[d]||0)+1;save();
+}
+function logSession(k,n,s,tot,chs){S.log.push({t:Date.now(),k,n,s,tot,ch:chs});if(S.log.length>150)S.log=S.log.slice(-150);save()}
+const mIt=id=>{const it=S.items[id];return it?Math.min(it.b,3)/3:0};
+function chItems(ch){return[...BANK.filter(q=>q.ch===ch).map(q=>q.id),...FLASH.filter(f=>f.ch===ch).map(f=>f.id),...OPEN.filter(o=>o.ch===ch).map(o=>o.id),...EXI[ch]]}
+function chMastery(ch){const a=chItems(ch);return a.reduce((s,id)=>s+mIt(id),0)/a.length}
+const chRead=ch=>SECS[ch].filter(s=>S.read[ch+"/"+s]).length;
+function chScore(ch){return Math.round(100*(.8*chMastery(ch)+.2*chRead(ch)/SECS[ch].length))}
+const overall=()=>Math.round(CH.reduce((s,c)=>s+chScore(c.id),0)/CH.length);
+const INT=[0,4e7,1.7e8,4.3e8,1e9];
+const isErr=id=>{const it=S.items[id];return it&&it.b===0&&it.w>0};
+const isDue=id=>{const it=S.items[id];return it&&it.b>0&&Date.now()-it.t>INT[it.b]};
+const errCount=()=>BANK.filter(q=>isErr(q.id)).length;
+function streak(){let n=0;const d=new Date();if(!S.days[dkey(d)])d.setDate(d.getDate()-1);while(S.days[dkey(d)]){n++;d.setDate(d.getDate()-1)}return n}
+const answered=()=>Object.values(S.items).reduce((s,i)=>s+i.c+i.w,0);
+
+/* ================= ICONES ================= */
+const IC={
+ home:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg>',
+ book:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"/><path d="M4 21V5"/><path d="M9 7h6"/></svg>',
+ dumb:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5"/></svg>',
+ exam:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2"/><path d="M10 2h4"/></svg>',
+ chart:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg>',
+ bolt:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></svg>',
+ list:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6h11M9 12h11M9 18h11"/><path d="M4 6l1 1 2-2M4 12l1 1 2-2M4 18l1 1 2-2"/></svg>',
+ cards:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="14" height="14" rx="2"/><path d="M7 3h12a2 2 0 0 1 2 2v12"/></svg>',
+ pen:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h4L19 9l-4-4L4 16z"/><path d="M13 7l4 4"/></svg>',
+ dna:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3c0 6 10 6 10 12s-10 3-10 6"/><path d="M17 3c0 6-10 6-10 12s10 3 10 6"/><path d="M9 7h6M9 17h6"/></svg>',
+ eye:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>',
+ tag:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><path d="M8.5 7.5L16 15"/><circle cx="18" cy="17" r="3"/></svg>',
+ sort:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>'
+};
+const NAV=[["accueil","Accueil",IC.home],["cours","Cours",IC.book],["entrainement","S’entraîner",IC.dumb],["examen","Examen blanc",IC.exam],["progres","Progrès",IC.chart]];
+const brandSvg=`<svg class="brand-mark" viewBox="0 0 40 40"><rect width="40" height="40" rx="10" fill="var(--ink)"/><path d="M13 8c0 8 14 8 14 16s-14 4-14 8" stroke="var(--bA)" stroke-width="3" fill="none" stroke-linecap="round"/><path d="M27 8c0 8-14 8-14 16s14 4 14 8" stroke="var(--bC)" stroke-width="3" fill="none" stroke-linecap="round"/></svg>`;
+
+/* ================= RENDU : SHELL ================= */
+let CUR="accueil";
+function renderSide(){
+  const top=CUR.split("-")[0];
+  $("#side").innerHTML=`<a class="brand" href="#accueil">${brandSvg}<div><b>Molécules du vivant</b><span>Biologie · 4<sup>e</sup> secondaire</span></div></a>
+  <nav class="nav">${NAV.map(n=>`<a href="#${n[0]}" class="${top===n[0]?"on":""}">${n[2]}${n[1]}</a>`).join("")}</nav>
+  <div><div class="side-h">Chapitres</div><div class="side-ch">${CH.map(c=>{const v=chScore(c.id);return `<a href="#cours-${c.id}" data-ch="${c.id}"><span>${c.short}</span><span>${v} %</span><div class="bar"><i style="width:${v}%"></i></div></a>`}).join("")}</div></div>
+  <div class="sync ${cloudRef?"ok":""}"><i></i>${cloudRef?"Progression enregistrée sur ton compte":"Progression enregistrée sur cet appareil"}</div>`;
+  $("#tabs").innerHTML=NAV.map(n=>`<a href="#${n[0]}" class="${top===n[0]?"on":""}">${n[2]}${n[0]==="examen"?"Examen":n[0]==="entrainement"?"S’entraîner":n[1]}</a>`).join("");
+}
+const main=()=>$("#main");
+function show(h){main().innerHTML=h;window.scrollTo(0,0)}
+
+/* ================= ACCUEIL ================= */
+function ring(v){const r=46,c=2*Math.PI*r;return `<svg class="ring" viewBox="0 0 118 118"><circle cx="59" cy="59" r="${r}" fill="none" stroke-width="12" class="bgc"/>${v?"":"<!--"}<circle cx="59" cy="59" r="${r}" fill="none" stroke-width="12" class="fgc" stroke-linecap="round" stroke-dasharray="${(c*v/100).toFixed(1)} ${c.toFixed(1)}" transform="rotate(-90 59 59)"/>${v?"":"-->"}<text x="59" y="66" text-anchor="middle" font-size="24">${v} %</text></svg>`}
+function chart(){
+  const d=S.log.filter(l=>l.tot).slice(-14);
+  if(d.length<2)return `<div class="empty">Ta courbe apparaîtra après deux quiz ou examens.</div>`;
+  const W=520,H=190,l=36,r=12,t=12,b=26,iw=W-l-r,ih=H-t-b,x=i=>l+(d.length===1?iw/2:i*iw/(d.length-1)),y=v=>t+ih-ih*v/100;
+  let g="";[0,50,100].forEach(v=>g+=`<line x1="${l}" y1="${y(v)}" x2="${W-r}" y2="${y(v)}" class="gl"/><text x="${l-8}" y="${y(v)+4}" text-anchor="end" class="ax">${v}</text>`);
+  const p=d.map((e,i)=>[x(i),y(Math.round(100*e.s/e.tot))]);
+  g+=`<path d="M${p[0][0]} ${y(0)} L${p.map(q=>q.join(" ")).join(" L")} L${p[p.length-1][0]} ${y(0)}Z" class="ar"/><path d="M${p.map(q=>q.join(" ")).join(" L")}" class="ln"/>`;
+  p.forEach((q,i)=>g+=`<circle cx="${q[0]}" cy="${q[1]}" r="${i===p.length-1?6:4}" class="dt ${d[i].k==="exam"?"ex":""}"><title>${esc(d[i].n)} : ${d[i].s}/${d[i].tot}</title></circle>`);
+  g+=`<text x="${l}" y="${H-6}" class="ax">${new Date(d[0].t).toLocaleDateString("fr-CA",{day:"numeric",month:"short"})}</text><text x="${W-r}" y="${H-6}" text-anchor="end" class="ax">${new Date(d[d.length-1].t).toLocaleDateString("fr-CA",{day:"numeric",month:"short"})}</text>`;
+  return `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Scores des dernières sessions">${g}</svg>`;
+}
+function heat(){
+  const d=new Date();d.setDate(d.getDate()-d.getDay()-7*11);let h="";
+  for(let i=0;i<84;i++){const k=dkey(d),v=S.days[k]||0,lv=v===0?"":v<10?"l1":v<25?"l2":v<50?"l3":"l4";h+=`<i class="${lv}" title="${k} : ${v} réponse(s)"></i>`;d.setDate(d.getDate()+1)}
+  return `<div class="heat">${h}</div>`;
+}
+function vAccueil(){
+  const o=overall(),weak=CH.slice().sort((a,b)=>chScore(a.id)-chScore(b.id))[0],w=chScore(weak.id),err=errCount();
+  const nextRead=SECS[weak.id].length-chRead(weak.id);
+  show(`<div class="head"><p class="eyebrow">Glucides · Lipides · Protides · ADN · Eau</p><h1>Ta révision de biochimie</h1>
+  <p class="lead">Lis le cours avec ses schémas, entraîne-toi avec des quiz et des exercices interactifs, puis passe un examen blanc. Chaque réponse fait avancer ta progression.</p></div>
+  <section class="dash-top">
+   <div class="card overall">${ring(o)}<div class="stack" style="gap:12px"><div><h3>Maîtrise globale</h3><p class="small muted">80 % entraînement · 20 % lecture du cours</p></div>
+    <div class="stats"><b>${streak()}</b><b>${answered()}</b><b>${err}</b><span>jour(s) de suite</span><span>réponses</span><span>erreur(s) à revoir</span></div></div></div>
+   <div class="card next" data-ch="${weak.id}"><span class="chip">Prochaine étape</span><h3>${weak.name}</h3>
+    <p class="small muted">${w===0?"Tu n’as pas encore commencé ce chapitre.":`Ton chapitre le plus faible (${w} %).`} ${nextRead?`Il te reste ${nextRead} section(s) à lire.`:"Tu as lu tout le cours : place à l’entraînement."}</p>
+    <div class="row" style="margin-top:12px">${nextRead?`<a class="btn pri" href="#cours-${weak.id}">Lire le cours</a>`:""}<button class="btn ${nextRead?"":"pri"}" data-a="quizch" data-ch2="${weak.id}">Quiz ${weak.short}</button>${err?`<button class="btn" data-a="smart">Revoir mes erreurs</button>`:""}</div></div>
+  </section>
+  <div class="sec-title"><h2>Chapitres</h2><a class="small muted" href="#cours">Tout le cours</a></div>
+  <div class="chcards">${CH.map(chCard).join("")}</div>
+  <div class="grid g2">
+   <div class="card chart"><div class="sec-title"><h3>Scores des dernières sessions</h3><span class="small muted">en %</span></div>${chart()}</div>
+   <div class="card"><div class="sec-title"><h3>Activité</h3><span class="small muted">12 dernières semaines</span></div>${heat()}<p class="small muted" style="margin-top:10px">Chaque case = un jour. Plus elle est foncée, plus tu as répondu de questions.</p></div>
+  </div>`);
+}
+function chCard(c){const v=chScore(c.id);return `<a class="chcard" href="#cours-${c.id}" data-ch="${c.id}"><span class="f">${c.f}</span><h3>${c.name}</h3><div class="bar"><i style="width:${v}%"></i></div><div class="meta"><span>Cours lu ${chRead(c.id)}/${SECS[c.id].length}</span><span>${v} %</span></div></a>`}
+
+/* ================= COURS ================= */
+function vCoursList(){
+  show(`<div class="head"><p class="eyebrow">Théorie</p><h1>Le cours</h1><p class="lead">Cinq chapitres tirés de tes synthèses. Marque chaque section comme lue quand tu l’as comprise.</p></div><div class="chcards">${CH.map(chCard).join("")}</div>`);
+}
+const heroArt={eau:()=>draw("water",{},{nol:true}),glu:()=>draw("sacch",{},{nol:true}),lip:()=>draw("bilayer",{},{nol:true}),pro:()=>draw("peptide",{},{nol:true}),adn:()=>draw("helix")};
+function vChapter(ch){
+  const c=CHM[ch];if(!c)return vCoursList();
+  const secs=COURSE[ch](),i=CH.indexOf(c),prev=CH[i-1],next=CH[i+1];
+  show(`<div data-ch="${ch}">
+  <div class="ch-hero"><div class="stack" style="gap:8px"><span class="f">${c.f}</span><h1>${c.name}</h1><p class="muted">${secs.length} sections · ${chRead(ch)} lue(s) · maîtrise ${chScore(ch)} %</p></div><div aria-hidden="true">${heroArt[ch]()}</div></div>
+  <nav class="toc">${secs.map((s,k)=>`<a href="#cours-${ch}" data-a="jump" data-s="${s.id}" class="${S.read[ch+"/"+s.id]?"read":""}">${k+1}. ${s.t}</a>`).join("")}</nav>
+  ${secs.map((s,k)=>`<section class="sec" id="s-${s.id}"><h2><span class="n">${ch.toUpperCase()} ${k+1}</span>${s.t}</h2>${s.h}
+   <button class="btn sm done ${S.read[ch+"/"+s.id]?"on":""}" data-a="read" data-s="${s.id}">${S.read[ch+"/"+s.id]?"✓ Section lue":"Marquer comme lue"}</button></section>`).join("")}
+  <div class="card stack" style="margin-top:8px"><h3>Teste-toi sur ce chapitre</h3><div class="row">
+   <button class="btn pri" data-a="quizch" data-ch2="${ch}">Quiz (10 questions)</button><button class="btn" data-a="flashch" data-ch2="${ch}">Flashcards</button><button class="btn" data-a="opench" data-ch2="${ch}">Questions à rédiger</button></div></div>
+  <div class="ch-foot">${prev?`<a class="btn" href="#cours-${prev.id}">← ${prev.short}</a>`:"<span></span>"}${next?`<a class="btn" href="#cours-${next.id}">${next.short} →</a>`:""}</div></div>`);
+  if(ch==="adn")liveComp();
+}
+function liveComp(){
+  const inp=$("#comp-live");if(!inp)return;
+  const v=inp.value.toUpperCase().replace(/[^ATGC]/g,"").slice(0,12)||"A";
+  const c=v.split("").map(x=>COMP[x]).join("");
+  $("#comp-out").innerHTML=`<p class="mono">Brin 1 : ${v.replace(/(...)/g,"$1 ")}<br>Brin 2 : ${c.replace(/(...)/g,"$1 ")}</p><div class="fig-sc" style="padding:8px"><div style="min-width:${Math.min(v.length*54+100,700)}px">${draw("dna",{top:v})}</div></div>`;
+}
+
+/* ================= ENTRAÎNEMENT ================= */
+let FIL=new Set(CH.map(c=>c.id));
+function vTrain(){
+  const err=errCount(),due=BANK.filter(q=>isDue(q.id)).length;
+  const m=(a,ic,t,d,badge,cls="")=>`<button class="mode ${cls}" data-a="${a}"><span class="ic">${ic}</span><b>${t}</b><span>${d}</span>${badge?`<em class="badge">${badge}</em>`:""}</button>`;
+  show(`<div class="head"><p class="eyebrow">Pratique</p><h1>S’entraîner</h1><p class="lead">Choisis les chapitres, puis un mode. Les questions que tu rates reviennent plus souvent.</p></div>
+  <div class="filters"><span class="small muted">Chapitres :</span>${CH.map(c=>`<button class="fchip ${FIL.has(c.id)?"on":""}" data-ch="${c.id}" data-a="fil" data-ch2="${c.id}">${c.short}</button>`).join("")}</div>
+  <div class="modes">
+   ${m("smart",IC.bolt,"Révision intelligente","12 questions choisies pour toi : erreurs, questions à revoir, puis nouvelles.",err||due?`${err} erreur(s) · ${due} à revoir`:"","feature")}
+   ${m("quiz",IC.list,"Quiz","10 questions à choix multiples et vrai/faux, avec correction immédiate.")}
+   ${m("flash",IC.cards,"Flashcards","Retourne la carte, puis dis honnêtement si tu savais.")}
+   ${m("open",IC.pen,"Questions à rédiger","Écris ta réponse comme à l’évaluation, puis compare au modèle.")}
+  </div>
+  <h2 class="mode-h">Exercices interactifs</h2>
+  <div class="modes">
+   ${m("comp",IC.dna,"Compléter un brin d’ADN","Écris le brin complémentaire base par base.")}
+   ${m("ident",IC.eye,"Identifie la molécule","Reconnais la molécule à partir de son schéma.")}
+   ${m("label",IC.tag,"Légende les schémas","Associe chaque numéro à la bonne légende.")}
+   ${m("sort",IC.sort,"Classe les molécules","Range chaque élément dans la bonne catégorie.")}
+  </div>`);
+}
+const filtered=()=>BANK.filter(q=>FIL.has(q.ch));
+function pickWeighted(list,n){return list.map(q=>({q,s:mIt(q.id)+Math.random()*.6})).sort((a,b)=>a.s-b.s).slice(0,n).map(x=>x.q)}
+
+/* ----- moteur de quiz ----- */
+let SESSION=null,TIMER=null;
+function prep(q){
+  if(q.t==="vf")return{q,choices:["Vrai","Faux"],ans:q.a?"Vrai":"Faux"};
+  if(q.t==="id"){const o=shuffle(POOL.filter(n=>n!==q.a)).slice(0,3);return{q,choices:shuffle([q.a,...o]),ans:q.a}}
+  return{q,choices:shuffle(q.c),ans:q.c[0]};
+}
+function startQuiz(title,list,mode="quiz",mins=0){
+  if(!list.length){show(`<div class="sess"><div class="card empty">Aucune question disponible avec ces chapitres.<br><br><a class="btn" href="#entrainement">Retour</a></div></div>`);return}
+  clearInterval(TIMER);
+  SESSION={kind:"quiz",title,mode,items:list.map(prep),i:0,res:[],locked:false,end:mins?Date.now()+mins*60000:0};
+  if(mins)TIMER=setInterval(tick,1000);
+  renderQ();
+}
+function tick(){const s=SESSION;if(!s||!s.end){clearInterval(TIMER);return}const left=Math.max(0,s.end-Date.now()),el=$("#timer");
+  if(el){el.textContent=`${Math.floor(left/60000)}:${pad(Math.floor(left/1000)%60)}`;el.classList.toggle("low",left<120000)}
+  if(left<=0){clearInterval(TIMER);finishQuiz()}}
+function renderQ(){
+  const s=SESSION;if(s.i>=s.items.length)return finishQuiz();
+  const it=s.items[s.i],q=it.q,c=CHM[q.ch];
+  show(`<div class="sess"><div class="sess-top"><span class="t">${esc(s.title)}</span><div class="row">${s.end?`<span class="timer" id="timer">--:--</span>`:""}<span class="cnt">${s.i+1} / ${s.items.length}</span><button class="btn sm" data-a="quit">Quitter</button></div></div>
+  <div class="bar"><i style="width:${100*s.i/s.items.length}%"></i></div>
+  <div class="qcard" data-ch="${q.ch}"><span class="chip" style="align-self:flex-start">${c.short}</span><p class="qtext">${q.q}</p>
+   ${q.svg?`<div class="fig"><div class="fig-sc">${draw(q.svg,q.svgo,{nol:true})}</div></div>`:""}
+   <div class="choices ${q.t==="vf"?"vf":""}">${it.choices.map((ch,k)=>`<button class="choice" data-a="pick" data-k="${k}"><kbd>${k+1}</kbd><span>${ch}</span></button>`).join("")}</div>
+   <div id="fb"></div></div></div>`);
+  if(s.end)tick();
+}
+function pick(k){
+  const s=SESSION;if(!s||s.locked)return;const it=s.items[s.i],chosen=it.choices[k],ok=chosen===it.ans;
+  s.res.push({q:it.q,chosen,ans:it.ans,ok});record(it.q.id,ok);
+  if(s.mode==="exam"){s.i++;renderQ();return}
+  s.locked=true;
+  document.querySelectorAll(".choice").forEach((b,j)=>{b.disabled=true;if(it.choices[j]===it.ans)b.classList.add("ok");else if(j===k)b.classList.add("ko")});
+  $("#fb").innerHTML=`<div class="fb ${ok?"ok":"ko"}"><b>${ok?"Bonne réponse":"Pas tout à fait"}</b>${ok?"":`<span>Réponse : <b style="font-family:inherit;font-size:inherit;color:inherit">${it.ans}</b></span>`}<span>${it.q.exp}</span></div>
+  <div class="foot" style="margin-top:12px"><span class="small muted">Touche Entrée pour continuer</span><button class="btn pri" data-a="next" id="nextb">${s.i+1<s.items.length?"Question suivante":"Voir le résultat"}</button></div>`;
+  $("#nextb").focus({preventScroll:true});
+}
+function finishQuiz(){
+  clearInterval(TIMER);const s=SESSION;if(!s)return;
+  s.items.slice(s.res.length).forEach(it=>s.res.push({q:it.q,chosen:"(pas de réponse)",ans:it.ans,ok:false}));
+  const n=s.res.filter(r=>r.ok).length,tot=s.res.length,pct=Math.round(100*n/tot);
+  logSession(s.mode,s.title,n,tot,[...new Set(s.res.map(r=>r.q.ch))]);
+  const by={};s.res.forEach(r=>{by[r.q.ch]=by[r.q.ch]||[0,0];by[r.q.ch][1]++;if(r.ok)by[r.q.ch][0]++});
+  const wrong=s.res.filter(r=>!r.ok);SESSION={kind:"result",wrong:wrong.map(r=>r.q),mode:s.mode,title:s.title};
+  const msg=pct>=90?"Excellent, tu maîtrises.":pct>=70?"Bon travail. Revois les quelques erreurs ci-dessous.":pct>=50?"C’est un début. Relis les sections concernées, puis refais les erreurs.":"Reprends le cours de ces chapitres avant de recommencer.";
+  show(`<div class="sess"><div class="sess-top"><span class="t">${esc(s.title)} · résultat</span></div>
+  <div class="card stack"><div class="res-big"><b>${s.mode==="exam"?(Math.round(n/tot*200)/10).toString().replace(".",","):n}</b><span class="muted">${s.mode==="exam"?"/ 20":"/ "+tot} · ${pct} %</span></div><p>${msg}</p>
+   <div class="brk">${Object.entries(by).map(([ch,v])=>`<div data-ch="${ch}"><span>${CHM[ch].short}</span><div class="bar"><i style="width:${100*v[0]/v[1]}%"></i></div><span>${v[0]}/${v[1]}</span></div>`).join("")}</div>
+   <div class="row">${wrong.length?`<button class="btn pri" data-a="redo">Refaire mes ${wrong.length} erreur(s)</button>`:""}<a class="btn" href="#${s.mode==="exam"?"examen":"entrainement"}">Retour</a><a class="btn" href="#accueil">Voir ma progression</a></div></div>
+  ${wrong.length?`<div class="card stack"><h3>À retenir</h3><div class="wrong">${wrong.map(r=>`<div><b>${r.q.q}</b>${r.q.svg?`<span class="small muted">(question sur schéma)</span>`:""}<span class="small">Ta réponse : ${esc(r.chosen)} · Bonne réponse : <b>${r.ans}</b></span><span class="small muted">${r.q.exp}</span></div>`).join("")}</div></div>`:""}</div>`);
+}
+
+/* ----- flashcards ----- */
+function startFlash(list){
+  if(!list.length)return vTrain();
+  SESSION={kind:"flash",items:shuffle(list).slice(0,15),i:0,flip:false,known:0};renderFlash();
+}
+function renderFlash(){
+  const s=SESSION;if(s.i>=s.items.length){logSession("flash","Flashcards",s.known,s.items.length,[...new Set(s.items.map(f=>f.ch))]);
+    show(`<div class="sess"><div class="card stack"><div class="res-big"><b>${s.known}</b><span class="muted">/ ${s.items.length} cartes sues</span></div><p>Les cartes marquées « À revoir » reviendront en priorité.</p><div class="row"><button class="btn pri" data-a="flash">Nouveau paquet</button><a class="btn" href="#entrainement">Retour</a></div></div></div>`);SESSION=null;return}
+  const f=s.items[s.i];
+  show(`<div class="sess"><div class="sess-top"><span class="t">Flashcards</span><div class="row"><span class="cnt">${s.i+1} / ${s.items.length}</span><button class="btn sm" data-a="quit">Quitter</button></div></div>
+  <div class="bar"><i style="width:${100*s.i/s.items.length}%"></i></div>
+  <div class="qcard flash" data-ch="${f.ch}" data-a="flip" role="button" tabindex="0"><span class="chip">${CHM[f.ch].short}</span><p class="front">${f.front}</p>${s.flip?`<p class="back">${f.back}</p>`:`<p class="hint">Touche la carte (ou Espace) pour voir la réponse</p>`}</div>
+  ${s.flip?`<div class="row" style="justify-content:center"><button class="btn" data-a="fno">À revoir</button><button class="btn pri" data-a="fyes">Je savais</button></div>`:""}</div>`);
+}
+
+/* ----- questions ouvertes ----- */
+function startOpen(list){if(!list.length)return vTrain();SESSION={kind:"open",items:shuffle(list).slice(0,5),i:0,shown:false,ok:0,txt:""};renderOpen()}
+function renderOpen(){
+  const s=SESSION;if(s.i>=s.items.length){logSession("open","Questions à rédiger",s.ok,s.items.length,[...new Set(s.items.map(o=>o.ch))]);
+    show(`<div class="sess"><div class="card stack"><div class="res-big"><b>${s.ok}</b><span class="muted">/ ${s.items.length} réponses réussies</span></div><div class="row"><button class="btn pri" data-a="open">Autres questions</button><a class="btn" href="#entrainement">Retour</a></div></div></div>`);SESSION=null;return}
+  const o=s.items[s.i];let ana="";
+  if(s.shown){const t=" "+norm(s.txt)+" ";const hits=o.k.map(g=>g.some(w=>t.includes(norm(w))));
+    ana=`<div class="stack" style="gap:10px"><div><p class="small muted" style="margin-bottom:6px">Mots-clés attendus (${hits.filter(Boolean).length}/${o.k.length} trouvés dans ta réponse) :</p><div class="kw">${o.k.map((g,i)=>`<span class="${hits[i]?"hit":""}">${g[0]}</span>`).join("")}</div></div>
+    <div class="model"><b>Réponse modèle</b><br>${o.m}</div><p class="small muted">Compare honnêtement ta réponse au modèle :</p>
+    <div class="row"><button class="btn" data-a="ono">À retravailler</button><button class="btn pri" data-a="oyes">Réussi</button></div></div>`}
+  show(`<div class="sess"><div class="sess-top"><span class="t">Questions à rédiger</span><div class="row"><span class="cnt">${s.i+1} / ${s.items.length}</span><button class="btn sm" data-a="quit">Quitter</button></div></div>
+  <div class="qcard" data-ch="${o.ch}"><span class="chip" style="align-self:flex-start">${CHM[o.ch].short}</span><p class="qtext">${o.q}</p>
+  <textarea id="open-ans" placeholder="Écris ta réponse en phrases complètes…" ${s.shown?"readonly":""}>${esc(s.txt)}</textarea>
+  ${s.shown?ana:`<div class="row"><button class="btn pri" data-a="ocheck">Comparer avec le modèle</button></div>`}</div></div>`);
+}
+
+/* ----- complément ADN ----- */
+function startComp(){const n=9;let top="";for(let i=0;i<n;i++)top+="ATGC"[Math.floor(Math.random()*4)];SESSION={kind:"comp",top,done:false,streak:SESSION&&SESSION.kind==="comp"?SESSION.streak:0};renderComp()}
+function renderComp(res){
+  const s=SESSION,top=s.top.split("");
+  show(`<div class="sess"><div class="sess-top"><span class="t">Compléter un brin d’ADN</span><div class="row"><span class="cnt">Série : ${s.streak}</span><button class="btn sm" data-a="quit">Quitter</button></div></div>
+  <div class="qcard" data-ch="adn"><p class="qtext">Écris le brin complémentaire.</p><p class="small muted">Rappel : A ↔ T et G ↔ C. Le brin est découpé en triplets.</p>
+  <div class="bases">${[0,3,6].map(g=>`<div class="grp">${top.slice(g,g+3).map((b,k)=>{const i=g+k;const cls=res?(res[i]?"ok":"ko"):"";return `<div class="basecol"><span class="top">${b}</span><input id="b${i}" maxlength="1" inputmode="text" autocomplete="off" aria-label="Base ${i+1}" class="${cls}" ${s.done?"readonly":""} value="${s.ans?s.ans[i]:""}"></div>`}).join("")}</div>`).join("")}</div>
+  ${res?`<div class="fig"><div class="fig-sc">${draw("dna",{top:s.top,bot:s.ans.map(x=>x||"?").join(""),marks:res,tri:true})}</div></div>
+  <div class="fb ${res.every(Boolean)?"ok":"ko"}"><b>${res.every(Boolean)?"Parfait !":`${res.filter(Boolean).length}/9 bases correctes`}</b><span>Bonne réponse : <span class="mono">${top.map(b=>COMP[b]).join("").replace(/(...)/g,"$1 ")}</span></span></div>
+  <div class="row"><button class="btn pri" data-a="comp">Nouvelle séquence</button></div>`:`<div class="row"><button class="btn pri" data-a="ccheck">Vérifier</button></div>`}</div></div>`);
+  if(!res){const f=$("#b0");f&&f.focus({preventScroll:true})}
+}
+
+/* ----- identifie ----- */
+function startIdent(){const l=BANK.filter(q=>q.t==="id"&&FIL.has(q.ch));startQuiz("Identifie la molécule",shuffle(l).slice(0,8))}
+
+/* ----- légendes ----- */
+function startLabel(key){
+  const keys=Object.keys(LAB).filter(k=>FIL.has(LAB[k].ch));
+  if(!key){SESSION={kind:"labmenu"};
+    show(`<div class="sess"><div class="sess-top"><span class="t">Légende les schémas</span><button class="btn sm" data-a="quit">Quitter</button></div><div class="modes">${(keys.length?keys:Object.keys(LAB)).map(k=>{const L=LAB[k],it=S.items["x:lab:"+k];return `<button class="mode" data-a="labgo" data-k="${k}" data-ch="${L.ch}"><span class="chip">${CHM[L.ch].short}</span><b>${L.t}</b><span>${L.pins.length} légendes ${it?`· ${it.c} réussite(s)`:""}</span></button>`}).join("")}</div></div>`);return}
+  SESSION={kind:"label",key,checked:false};renderLabel();
+}
+function renderLabel(res){
+  const s=SESSION,L=LAB[s.key],opts=shuffle(L.pins);
+  const prev=s.vals||{};
+  show(`<div class="sess"><div class="sess-top"><span class="t">Légende : ${L.t}</span><div class="row"><button class="btn sm" data-a="label">Autre schéma</button><button class="btn sm" data-a="quit">Quitter</button></div></div>
+  <div class="qcard" data-ch="${L.ch}"><div class="fig"><div class="fig-sc">${draw(L.svg,L.o,{pins:L.pins,nol:true})}</div></div>
+  <div class="lab-list">${L.pins.map((p,i)=>`<label><span class="n">${i+1}</span><select id="lab-${p}" class="${res?(res[p]?"ok":"ko"):""}"><option value="">Choisir…</option>${opts.map(o=>`<option value="${o}" ${prev[p]===o?"selected":""}>${L.names[o]}</option>`).join("")}</select></label>`).join("")}</div>
+  ${res?`<div class="fb ${Object.values(res).every(Boolean)?"ok":"ko"}"><b>${Object.values(res).filter(Boolean).length}/${L.pins.length} légendes correctes</b><span>${L.pins.map((p,i)=>`${i+1} = ${L.names[p]}`).join(" · ")}</span></div><div class="row"><button class="btn pri" data-a="labgo" data-k="${s.key}">Recommencer</button><button class="btn" data-a="label">Autre schéma</button></div>`:`<div class="row"><button class="btn pri" data-a="lcheck">Vérifier</button></div>`}</div></div>`);
+}
+
+/* ----- classement ----- */
+function startSort(key){
+  if(!key){SESSION={kind:"sortmenu"};
+    show(`<div class="sess"><div class="sess-top"><span class="t">Classe les molécules</span><button class="btn sm" data-a="quit">Quitter</button></div><div class="modes">${Object.keys(CLS).map(k=>{const C=CLS[k];return `<button class="mode" data-a="sortgo" data-k="${k}" ${C.ch?`data-ch="${C.ch}"`:""}>${C.ch?`<span class="chip">${CHM[C.ch].short}</span>`:`<span class="chip">Tous</span>`}<b>${C.t}</b><span>${C.items.length} éléments · ${C.bins.length} catégories</span></button>`}).join("")}</div></div>`);return}
+  const C=CLS[key];SESSION={kind:"sort",key,place:C.items.map(()=>-1),sel:null,order:shuffle(C.items.map((_,i)=>i)),checked:false};renderSort();
+}
+function renderSort(){
+  const s=SESSION,C=CLS[s.key];
+  const tok=i=>{const ok=s.checked?(s.place[i]===C.items[i][1]?"ok":"ko"):"";return `<button class="tok ${s.sel===i?"sel":""} ${ok}" data-a="tok" data-i="${i}">${C.items[i][0]}</button>`};
+  const pool=s.order.filter(i=>s.place[i]===-1);
+  const nOk=C.items.filter((it,i)=>s.place[i]===it[1]).length;
+  show(`<div class="sess"><div class="sess-top"><span class="t">Classe : ${C.t}</span><div class="row"><button class="btn sm" data-a="sort">Autre série</button><button class="btn sm" data-a="quit">Quitter</button></div></div>
+  <div class="qcard" ${C.ch?`data-ch="${C.ch}"`:""}><p class="small muted">Touche un élément, puis touche la catégorie où il va. Touche un élément déjà placé pour le déplacer.</p>
+  <div class="pool">${pool.length?pool.map(tok).join(""):`<span class="small muted">Tous les éléments sont placés.</span>`}</div>
+  <div class="bins">${C.bins.map((b,k)=>`<div class="bin ${s.sel!=null?"armed":""}" data-a="bin" data-k="${k}" role="button" tabindex="0"><h3>${b}</h3><div class="in">${s.order.filter(i=>s.place[i]===k).map(tok).join("")}</div></div>`).join("")}</div>
+  ${s.checked?`<div class="fb ${nOk===C.items.length?"ok":"ko"}"><b>${nOk}/${C.items.length} bien classés</b>${nOk<C.items.length?`<span>Les éléments en rouge sont mal placés : déplace-les puis vérifie à nouveau.</span>`:""}</div>`:""}
+  <div class="row"><button class="btn pri" data-a="scheck" ${pool.length?"disabled":""}>Vérifier</button>${s.checked?`<button class="btn" data-a="sortgo" data-k="${s.key}">Recommencer</button>`:""}</div></div></div>`);
+}
+
+/* ================= EXAMEN ================= */
+function vExam(){
+  const ex=S.log.filter(l=>l.k==="exam").slice(-5).reverse();
+  show(`<div class="head"><p class="eyebrow">Conditions réelles</p><h1>Examen blanc</h1><p class="lead">20 questions sur les cinq chapitres (4 par chapitre), dont des schémas à identifier. Chronomètre de 25 minutes. Aucune correction avant la fin : comme le vrai examen.</p></div>
+  <div class="grid g2"><div class="card stack"><h3>Prêt ?</h3><ul class="small" style="margin:0;padding-left:18px;display:flex;flex-direction:column;gap:4px"><li>Note sur 20 à la fin, avec le détail par chapitre.</li><li>Tes erreurs sont ajoutées à la révision intelligente.</li><li>Raccourcis : touches 1 à 4 pour répondre.</li></ul>
+   <div class="row"><button class="btn pri" data-a="exam">Commencer l’examen</button></div></div>
+   <div class="card stack"><h3>Tes derniers examens</h3>${ex.length?`<div class="hist">${ex.map(e=>`<div><span>${new Date(e.t).toLocaleDateString("fr-CA",{weekday:"short",day:"numeric",month:"long"})}</span><span class="muted">${Math.round(100*e.s/e.tot)} %</span><b>${(Math.round(e.s/e.tot*200)/10).toString().replace(".",",")} / 20</b></div>`).join("")}</div>`:`<p class="muted small">Aucun examen pour l’instant.</p>`}</div></div>`);
+}
+function startExam(){let l=[];CH.forEach(c=>{l=l.concat(shuffle(BANK.filter(q=>q.ch===c.id)).slice(0,4))});startQuiz("Examen blanc",shuffle(l),"exam",25)}
+
+/* ================= PROGRÈS ================= */
+let confirmReset=false;
+function vProg(){
+  const h=S.log.slice(-12).reverse();
+  const kind={quiz:"Quiz",exam:"Examen blanc",flash:"Flashcards",open:"Rédaction"};
+  show(`<div class="head"><p class="eyebrow">Suivi</p><h1>Ma progression</h1><p class="lead">Ta maîtrise par chapitre, les compétences à cocher avant l’évaluation et l’historique de tes sessions.</p></div>
+  <div class="card" style="margin-bottom:16px"><div class="tbl-wrap"><table><tr><th>Chapitre</th><th>Cours lu</th><th>Entraînement</th><th>Erreurs à revoir</th><th>Total</th></tr>
+  ${CH.map(c=>`<tr data-ch="${c.id}"><td><a href="#cours-${c.id}"><b>${c.short}</b></a></td><td>${chRead(c.id)}/${SECS[c.id].length}</td><td style="min-width:120px"><div class="bar"><i style="width:${Math.round(100*chMastery(c.id))}%"></i></div></td><td>${BANK.filter(q=>q.ch===c.id&&isErr(q.id)).length}</td><td><b>${chScore(c.id)} %</b></td></tr>`).join("")}</table></div></div>
+  <div class="grid g2">
+   <div class="card stack"><div class="sec-title"><h3>Compétences à maîtriser</h3><span class="small muted">${SKILLS.filter(s=>S.skills[s.id]).length}/${SKILLS.length}</span></div>
+   <p class="small muted">Coche une compétence quand tu sais la faire sans regarder la synthèse.</p>
+   <div class="skills">${SKILLS.map(s=>`<button class="skill ${S.skills[s.id]?"on":""}" data-a="skill" data-k="${s.id}" data-ch="${s.ch}"><span class="box"></span><span>${s.t} <span class="chip" style="font-size:10px;padding:1px 6px">${CHM[s.ch].short}</span></span></button>`).join("")}</div></div>
+   <div class="stack">
+    <div class="card chart"><h3 style="margin-bottom:10px">Scores des dernières sessions</h3>${chart()}</div>
+    <div class="card"><h3 style="margin-bottom:6px">Historique</h3>${h.length?`<div class="hist">${h.map(e=>`<div><span>${kind[e.k]||e.k}${e.n&&e.n!==kind[e.k]?` · <span class="muted">${esc(e.n)}</span>`:""}</span><span class="muted">${new Date(e.t).toLocaleDateString("fr-CA",{day:"numeric",month:"short"})}</span><b>${e.s}/${e.tot}</b></div>`).join("")}</div>`:`<p class="small muted">Aucune session pour l’instant.</p>`}</div>
+    <div class="card stack"><h3>Recommencer à zéro</h3>${confirmReset?`<div class="confirm"><span class="small">Toute ta progression sera effacée. Continuer ?</span><button class="btn sm danger" data-a="resetyes">Oui, tout effacer</button><button class="btn sm" data-a="resetno">Annuler</button></div>`:`<p class="small muted">Efface les réponses, sections lues et compétences cochées.</p><div><button class="btn sm danger" data-a="reset">Effacer ma progression</button></div>`}</div>
+   </div></div>`);
+}
+
+/* ================= ROUTEUR ================= */
+function route(){
+  clearInterval(TIMER);SESSION=null;
+  const h=(location.hash||"#accueil").slice(1)||"accueil";CUR=h;renderSide();
+  if(h.startsWith("cours-"))return vChapter(h.slice(6));
+  ({accueil:vAccueil,cours:vCoursList,entrainement:vTrain,examen:vExam,progres:vProg}[h]||vAccueil)();
+}
+window.addEventListener("hashchange",route);
+
+/* ================= ACTIONS ================= */
+const ACT={
+ read(b){const ch=b.closest("[data-ch]").dataset.ch,k=ch+"/"+b.dataset.s;if(S.read[k])delete S.read[k];else S.read[k]=1;save();b.classList.toggle("on",!!S.read[k]);b.textContent=S.read[k]?"✓ Section lue":"Marquer comme lue";
+   const t=document.querySelector(`.toc a[data-s="${b.dataset.s}"]`);t&&t.classList.toggle("read",!!S.read[k])},
+ jump(b,e){e.preventDefault();const el=document.getElementById("s-"+b.dataset.s);el&&el.scrollIntoView({behavior:matchMedia("(prefers-reduced-motion:reduce)").matches?"auto":"smooth"})},
+ fil(b){const c=b.dataset.ch2;if(FIL.has(c)&&FIL.size>1)FIL.delete(c);else FIL.add(c);vTrain()},
+ quiz(){startQuiz("Quiz",pickWeighted(filtered(),10))},
+ quizch(b){startQuiz("Quiz · "+CHM[b.dataset.ch2].short,pickWeighted(BANK.filter(q=>q.ch===b.dataset.ch2),10))},
+ smart(){const l=filtered().length?filtered():BANK;const e=shuffle(l.filter(q=>isErr(q.id))),d=shuffle(l.filter(q=>isDue(q.id))),u=shuffle(l.filter(q=>!S.items[q.id])),r=pickWeighted(l.filter(q=>S.items[q.id]&&!isErr(q.id)&&!isDue(q.id)),12);
+   const pickd=[...new Set([...e,...d,...u,...r])].slice(0,12);startQuiz("Révision intelligente",shuffle(pickd))},
+ flash(){const l=FLASH.filter(f=>FIL.has(f.ch));startFlash(l.sort((a,b)=>mIt(a.id)-mIt(b.id)+Math.random()-.5))},
+ flashch(b){startFlash(FLASH.filter(f=>f.ch===b.dataset.ch2))},
+ flip(){if(SESSION&&SESSION.kind==="flash"&&!SESSION.flip){SESSION.flip=true;renderFlash()}},
+ fyes(){const s=SESSION;record(s.items[s.i].id,true);s.known++;s.i++;s.flip=false;renderFlash()},
+ fno(){const s=SESSION;record(s.items[s.i].id,false);s.i++;s.flip=false;renderFlash()},
+ open(){startOpen(OPEN.filter(o=>FIL.has(o.ch)))},
+ opench(b){startOpen(OPEN.filter(o=>o.ch===b.dataset.ch2))},
+ ocheck(){const s=SESSION;s.txt=$("#open-ans").value;s.shown=true;renderOpen()},
+ oyes(){const s=SESSION;record(s.items[s.i].id,true);s.ok++;s.i++;s.shown=false;s.txt="";renderOpen()},
+ ono(){const s=SESSION;record(s.items[s.i].id,false);s.i++;s.shown=false;s.txt="";renderOpen()},
+ pick(b){pick(+b.dataset.k)},
+ next(){if(SESSION&&SESSION.kind==="quiz"){SESSION.i++;SESSION.locked=false;renderQ()}},
+ quit(){const back={quiz:SESSION&&SESSION.mode==="exam"?"examen":"entrainement"}[SESSION&&SESSION.kind]||"entrainement";if(location.hash==="#"+back)route();else location.hash=back},
+ redo(){const s=SESSION;startQuiz("Mes erreurs",shuffle(s.wrong))},
+ exam(){startExam()},
+ comp(){startComp()},
+ ccheck(){const s=SESSION;s.ans=s.top.split("").map((_,i)=>($("#b"+i).value||"").toUpperCase());const res=s.top.split("").map((b,i)=>s.ans[i]===COMP[b]);
+   const all=res.every(Boolean);record("x:comp",all);s.streak=all?s.streak+1:0;s.done=true;renderComp(res)},
+ ident(){startIdent()},
+ label(){startLabel()},
+ labgo(b){startLabel(b.dataset.k)},
+ lcheck(){const s=SESSION,L=LAB[s.key];s.vals={};const res={};L.pins.forEach(p=>{s.vals[p]=$("#lab-"+p).value;res[p]=s.vals[p]===p});
+   record("x:lab:"+s.key,Object.values(res).every(Boolean));renderLabel(res)},
+ sort(){startSort()},
+ sortgo(b){startSort(b.dataset.k)},
+ tok(b,e){e.stopPropagation();const s=SESSION,i=+b.dataset.i;s.sel=s.sel===i?null:i;renderSort()},
+ bin(b){const s=SESSION;if(s.sel==null)return;s.place[s.sel]=+b.dataset.k;s.sel=null;renderSort()},
+ scheck(){const s=SESSION,C=CLS[s.key];s.checked=true;const all=C.items.every((it,i)=>s.place[i]===it[1]);record("x:cls:"+s.key,all);renderSort()},
+ skill(b){const k=b.dataset.k;if(S.skills[k])delete S.skills[k];else S.skills[k]=1;save();b.classList.toggle("on",!!S.skills[k]);const h=b.closest(".card").querySelector(".sec-title .muted");h.textContent=`${SKILLS.filter(s=>S.skills[s.id]).length}/${SKILLS.length}`},
+ reset(){confirmReset=true;vProg()},
+ resetno(){confirmReset=false;vProg()},
+ resetyes(){confirmReset=false;S=blank();save();vProg()}
+};
+document.addEventListener("click",e=>{const b=e.target.closest("[data-a]");if(!b||!ACT[b.dataset.a])return;ACT[b.dataset.a](b,e)});
+document.addEventListener("input",e=>{
+  if(e.target.id==="comp-live")liveComp();
+  if(/^b\d$/.test(e.target.id)){const v=e.target.value.toUpperCase().replace(/[^ATGC]/g,"");e.target.value=v;if(v){const n=$("#b"+(+e.target.id.slice(1)+1));n?n.focus():$('[data-a="ccheck"]')&&$('[data-a="ccheck"]').focus()}}
+});
+document.addEventListener("keydown",e=>{
+  const s=SESSION;if(!s||e.target.tagName==="TEXTAREA"||e.target.tagName==="SELECT")return;
+  if(e.target.tagName==="INPUT"){if(e.key==="Enter"&&s.kind==="comp"&&!s.done)ACT.ccheck();if(e.key==="Backspace"&&!e.target.value&&/^b\d$/.test(e.target.id)){const p=$("#b"+(+e.target.id.slice(1)-1));p&&p.focus()}return}
+  if(s.kind==="quiz"){if(!s.locked&&/^[1-4]$/.test(e.key)){const k=+e.key-1;if(k<s.items[s.i].choices.length){e.preventDefault();pick(k)}}else if(s.locked&&e.key==="Enter"){e.preventDefault();ACT.next()}}
+  if(s.kind==="flash"){if(!s.flip&&(e.key===" "||e.key==="Enter")){e.preventDefault();ACT.flip()}else if(s.flip&&e.key==="ArrowRight")ACT.fyes();else if(s.flip&&e.key==="ArrowLeft")ACT.fno()}
+  if((s.kind==="sort")&&e.key==="Enter"&&e.target.dataset.a==="bin"){ACT.bin(e.target)}
+});
+
+route();
+initCloud();
+</script>
+
+</body>
+</html>
